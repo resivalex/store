@@ -6,7 +6,7 @@ set :repo_url, 'git@github.com:resivalex/store.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :branch, :master
+set :branch, 'master'
 
 # Default deploy_to directory is /var/www/store
 set :deploy_to, '/var/www/store'
@@ -28,7 +28,7 @@ set :rails_env, 'production'
 set :bundle_flags, '--deployment'
 
 set :linked_files, %w{config/database.yml config/secrets.yml}
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/spree')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

@@ -10,9 +10,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
-gem 'spree',              '~> 3.1.0.rc1'
-gem 'spree_auth_devise',  '~> 3.1.0.rc1'
-gem 'spree_gateway',      '~> 3.1.0.rc1'
+gem 'spree',              '~> 3.0.9'
+gem 'spree_auth_devise',  '~> 3.0.9'
+gem 'spree_gateway',      '~> 3.0.9'
 
 # gem 'activeadmin', '~> 1.0.0.pre1'
 # gem 'dotenv-rails'
