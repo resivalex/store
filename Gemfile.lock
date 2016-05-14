@@ -379,8 +379,8 @@ DEPENDENCIES
   russian (~> 0.6.0)
   sass-rails (~> 5.0)
   slim
-  spree (~> 3.0.0)
-  spree_auth_devise (~> 3.0.0)
+  spree (~> 3.0.9)
+  spree_auth_devise (~> 3.0.6)
   spree_gateway (~> 3.0.0)
   spring
   spring-commands-rspec
