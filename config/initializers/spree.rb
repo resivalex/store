@@ -19,20 +19,20 @@ Spree.config do |config|
   # config.default_country_id = country.id if country.present?
   # config.checkout_zone = country.id
 
-  Money::Currency.register({
-     :priority        => 1,
-     :iso_code        => "RUB",
-     :iso_numeric     => 643,
-     # :iso_code        => "RUR",
-     # :iso_numeric     => 810,
-     :name            => "Russian Ruble",
-     :symbol          => "руб ",
-     :subunit         => "коп",
-     :subunit_to_unit => 100,
-     :separator       => ".",
-     :delimiter       => ",",
-     :html_entity     => "руб.",
-  })
+  # Money::Currency.register({
+  #    :priority        => 1,
+  #    :iso_code        => "RUB",
+  #    :iso_numeric     => 643,
+  #    # :iso_code        => "RUR",
+  #    # :iso_numeric     => 810,
+  #    :name            => "Russian Ruble",
+  #    :symbol          => "руб ",
+  #    :subunit         => "коп",
+  #    :subunit_to_unit => 100,
+  #    :separator       => ".",
+  #    :delimiter       => ",",
+  #    :html_entity     => "руб.",
+  # })
   # Money.default_currency = Money::Currency.new("RUB")
 end
 
