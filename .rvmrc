@@ -1,2 +1,0 @@
-echo "rvm use 2.3.0@store --create"
-rvm use 2.3.0@store --create
