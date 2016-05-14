@@ -13,6 +13,27 @@ Spree.config do |config|
   # Example:
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
+  # config.currency = 'RUB'
+
+  # country = Spree::Country.find_by_name('Russian Federation')
+  # config.default_country_id = country.id if country.present?
+  # config.checkout_zone = country.id
+
+  Money::Currency.register({
+     :priority        => 1,
+     :iso_code        => "RUB",
+     :iso_numeric     => 643,
+     # :iso_code        => "RUR",
+     # :iso_numeric     => 810,
+     :name            => "Russian Ruble",
+     :symbol          => "руб ",
+     :subunit         => "коп",
+     :subunit_to_unit => 100,
+     :separator       => ".",
+     :delimiter       => ",",
+     :html_entity     => "руб.",
+  })
+  # Money.default_currency = Money::Currency.new("RUB")
 end
 
 Spree.user_class = "Spree::LegacyUser"

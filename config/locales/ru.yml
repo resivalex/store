@@ -387,6 +387,25 @@ ru:
         many: "%{count} ошибок препятствуют сохранению %{resource}:"
         one: "Одна ошибка препятствует сохранению %{resource}:"
         other: "%{count} ошибки препятствуют сохранению %{resource}:"
+  number:
+    format:
+      delimiter: ' '
+      precision: 3
+      separator: ','
+      significant: false
+      strip_insignificant_zeros: false
+    precision:
+      format:
+        delimiter: ' '
+    currency:
+      format:
+        delimiter: ' '
+        format: '%n %u'
+        precision: 2
+        separator: ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: 'руб.'
   spree:
     abbreviation: "Аббревиатура"
     accept:
@@ -816,7 +835,7 @@ ru:
     master_price: "Основная цена"
     match_choices:
       all: "Всем"
-      none: "Ни одному"
+      none: "Отсутствует"
     max_items: "Максимальное число наименований по начальной ставке"
     member_since: "Зарегистр. с"
     memo:
