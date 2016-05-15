@@ -1,3 +1,12 @@
+GIT
+  remote: git@github.com:SecretAgents/yandex_kassa.git
+  revision: afd29aa2f7e03bcfad0cc5be2eff690fcd571437
+  branch: afd29aa2f7e03bcfad0cc5be2eff690fcd571437
+  specs:
+    spree_yandex_kassa (2.3.10)
+      offsite_payments (~> 2.0.1)
+      spree_core (>= 2.3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -20,6 +29,9 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_utils (2.2.3)
+      activesupport (>= 2.3.11)
+      i18n
     activejob (4.2.6)
       activesupport (= 4.2.6)
       globalid (>= 0.3.0)
@@ -169,6 +181,14 @@ GEM
     net-ssh (3.1.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    offsite_payments (2.0.1)
+      active_utils (~> 2.2.0)
+      activesupport (>= 3.2.14, < 5.0.0)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (~> 0.5)
+      json (~> 1.7)
+      money (< 7.0.0)
+      nokogiri (~> 1.4)
     orm_adapter (0.5.0)
     paperclip (4.3.6)
       activemodel (>= 3.2.0)
@@ -382,6 +402,7 @@ DEPENDENCIES
   spree (~> 3.0.9)
   spree_auth_devise (~> 3.0.6)
   spree_gateway (~> 3.0.0)
+  spree_yandex_kassa!
   spring
   spring-commands-rspec
   sqlite3
