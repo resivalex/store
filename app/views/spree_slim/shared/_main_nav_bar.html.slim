@@ -1,13 +1,9 @@
 nav.col-md-12
   #main-nav-bar.navbar
     ul.nav.navbar-nav[data-hook]
-      li#logo
-        = logo
-      - Spree::Taxonomy.all.each do |taxonomy|
-        li
-          = link_to Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name), nested_taxons_path(taxonomy.root)
+      li#home-link[data-hook]
+        = link_to Spree.t(:home), spree.root_path
     ul.nav.navbar-nav.navbar-right[data-hook]
-      = render 'spree/shared/login_bar'
       li#link-to-cart[data-hook]
         noscript
           = link_to Spree.t(:cart), '/cart'
