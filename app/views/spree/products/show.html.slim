@@ -1,0 +1,26 @@
+.clearfix
+  - @body_id = 'product-details'
+  - cache [I18n.locale, current_currency, @product, @product.possible_promotions] do
+    div[data-hook="product_show" itemscope itemtype="https://schema.org/Product"]
+      .col-md-4[data-hook="product_left_part"]
+        div[data-hook="product_left_part_wrap"]
+          #product-images[data-hook="product_images"]
+            #main-image.panel.panel-default[data-hook]
+              .panel-body.text-center
+                = render :partial => 'image'
+            #thumbnails[data-hook]
+              = render :partial => 'thumbnails'
+          div[data-hook="product_properties"]
+            = render :partial => 'properties'
+          div[data-hook="promotions"]
+            = render :partial => 'promotions'
+      .col-md-8[data-hook="product_right_part"]
+        div[data-hook="product_right_part_wrap"]
+          #product-description[data-hook="product_description"]
+            h1.product-title[itemprop="name"]
+              = @product.name
+            .well[itemprop="description" data-hook="description"]
+              = product_description(@product) rescue Spree.t(:product_has_no_description)
+            #cart-form[data-hook="cart_form"]
+              = render :partial => 'cart_form'
+          = render :partial => 'taxons'

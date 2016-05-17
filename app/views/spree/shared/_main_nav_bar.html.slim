@@ -8,6 +8,9 @@ nav.col-md-12
           = link_to Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name), nested_taxons_path(taxonomy.root)
     ul.nav.navbar-nav.navbar-right[data-hook]
       = render 'spree/shared/login_bar'
+      - if spree_current_user.try(:admin?)
+        li
+          = link_to 'Admin', admin_path
       li#link-to-cart[data-hook]
         noscript
           = link_to Spree.t(:cart), '/cart'

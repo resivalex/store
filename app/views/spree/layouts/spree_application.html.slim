@@ -1,16 +1,18 @@
 doctype 5
 html lang=I18n.locale
   head[data-hook="inside_head"]
+    - content_for :head
+      = javascript_include_tag '/js/idangerous.swiper.min.js', 'application'
+      = stylesheet_link_tag '/css/idangerous.swiper.css', 'application'
+    end
     = render partial: 'spree/shared/head'
   body class=body_class id="@body_id || 'default'" data-hook="body"
     = render partial: 'spree/shared/google_analytics.js'
-    = render partial: 'spree/shared/header'
-    .container
-      .row[data-hook]
-        = render partial: 'spree/shared/sidebar' if content_for? :sidebar
-        |  <div id="content" class="
-        = !content_for?(:sidebar) ? "col-sm-12" : "col-sm-8 col-md-9"
-        | " data-hook> 
-        = flash_messages
-        = yield
-      = yield :templates
+    #under-header
+    #fixed-header
+      = render partial: 'spree/shared/header'
+    = render partial: 'spree/shared/sidebar' if content_for? :sidebar
+    = flash_messages
+    = yield
+    = render 'footer'
+  = yield :templates

@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+#under-header {
+  height: 50px;
+}
+
+#fixed-header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 100;
+}
+
+.swiper-container {
+  width: 100%;
+  padding-bottom: 50%;
+  height: 0;
+
+  img {
+    width: 100%;
+  }
+}
+
+footer {
+  background: black;
+  height: 50px;
+
+  color: white;
+}
