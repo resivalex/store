@@ -1,12 +1,4 @@
-calcHeaderOffset = ->
-  $('#under-header').css(height: $('#fixed-header').height())
-
-$(window).resize  calcHeaderOffset
-$(document).ready calcHeaderOffset
-setInterval(calcHeaderOffset, 100)
-
 $(document).ready ->
-
   mySwiper = new Swiper '.swiper-container',
     direction: 'vertical'
     loop: true,
@@ -20,3 +12,11 @@ $(document).ready ->
   
     autoplay: 3000
     autoplayDisableOnInteraction: false
+
+    setTimeout(calcHeaderOffset, 1000)
+
+calcHeaderOffset = ->
+  $('#under-header').css(height: $('#fixed-header').height())
+
+$(window).resize  calcHeaderOffset
+$(document).ready calcHeaderOffset

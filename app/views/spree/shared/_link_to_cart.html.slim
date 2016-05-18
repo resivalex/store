@@ -1,0 +1,12 @@
+- text = text ? h(text) : Spree.t('cart')
+- is_empty = simple_current_order.nil? || simple_current_order.item_count.zero?
+- css_class = is_empty ? 'empty' : 'full'
+
+= link_to spree.cart_path, class: "cart-info #{css_class}" do
+  span.glyphicon.glyphicon-shopping-cart
+  / = " #{text}: "
+  - if is_empty
+    = "(#{Spree.t('empty')})"
+  - else
+    span.count = simple_current_order.item_count
+    span.amount = simple_current_order.display_total

@@ -10,8 +10,6 @@
                 = render :partial => 'image'
             #thumbnails[data-hook]
               = render :partial => 'thumbnails'
-          div[data-hook="product_properties"]
-            = render :partial => 'properties'
           div[data-hook="promotions"]
             = render :partial => 'promotions'
       .col-md-8[data-hook="product_right_part"]
@@ -19,8 +17,10 @@
           #product-description[data-hook="product_description"]
             h1.product-title[itemprop="name"]
               = @product.name
-            .well[itemprop="description" data-hook="description"]
-              = product_description(@product) rescue Spree.t(:product_has_no_description)
+            div[data-hook="product_properties"]
+              = render :partial => 'properties'
+            / .well[itemprop="description" data-hook="description"]
+              / = product_description(@product) rescue Spree.t(:product_has_no_description)
             #cart-form[data-hook="cart_form"]
               = render :partial => 'cart_form'
-          = render :partial => 'taxons'
+          / = render :partial => 'taxons'
