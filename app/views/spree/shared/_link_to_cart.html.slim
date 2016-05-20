@@ -6,7 +6,7 @@
   span.glyphicon.glyphicon-shopping-cart
   / = " #{text}: "
   - if is_empty
-    = "(#{Spree.t('empty')})"
+    = " (#{Spree.t('empty')})"
   - else
     span.count = simple_current_order.item_count
     span.amount = simple_current_order.display_total

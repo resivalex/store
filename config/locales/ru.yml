@@ -698,7 +698,7 @@ ru:
         no_user_specified:
         not_first_order:
     email: "Электронная почта"
-    empty: "пусто"
+    empty: "нет товаров"
     empty_cart: "Очистить корзину"
     enable_mail_delivery: "Включить доставку почты"
     end: "Конец"

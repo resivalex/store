@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require idangerous.swiper.min
+//= require jquery.slicknav.min
+//= require actions

@@ -1,0 +1,12 @@
+ul#right-menu[data-hook]
+  - if spree_current_user.try(:admin?)
+    li
+      = link_to admin_path do
+        span.glyphicon.glyphicon-king
+  = render 'spree/shared/login_bar'
+  li#link-to-cart[data-hook]
+    noscript
+      = link_to Spree.t(:cart), '/cart'
+    |    
+script
+  | Spree.fetch_cart()

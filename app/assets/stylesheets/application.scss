@@ -10,9 +10,15 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require_tree ./spree
+ *= require idangerous.swiper
+ *= require slicknav.min
  *= require_self
  */
+
+#fixed-header, #under-header {
+  background: black;
+}
 
 #under-header {
   height: 50px;
@@ -40,4 +46,63 @@ footer {
   height: 50px;
 
   color: white;
+}
+
+.slicknav_btn {
+  background-color: #4c4c4c;
+  float: left;
+}
+
+$menu_threshold: 800px;
+
+.slicknav_menu {
+  background: black;
+  display: block;
+
+  @media (min-width: $menu_threshold) {
+    display: none;
+  }
+}
+
+#left-menu, #right-menu {
+  padding: 0;
+
+  li {
+    float: left;
+    list-style-type: none;
+    padding: 15px;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  a {
+    color: white;
+  }
+}
+
+#left-menu {
+  display: none;
+
+  @media (min-width: $menu_threshold) {
+    display: block;
+  }
+}
+
+#right-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.slicknav_nav {
+  a {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 0;
+      color: white;
+      text-decoration: underline;
+    }
+  }
 }

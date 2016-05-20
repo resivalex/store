@@ -30,9 +30,18 @@
 
   .navbar {
     border: 0;
+    color: white;
     margin-bottom: 0;
+
+    .glyphicon.glyphicon-menu-hamburger {
+      font-size: 30px;
+      position: relative;
+      top: 10px;
+    }
   }
 }
+
+
 
 #spree-footer {
   background: $gray-dark;

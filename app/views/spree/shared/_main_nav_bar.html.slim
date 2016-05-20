@@ -1,19 +1,5 @@
 nav.col-md-12
   #main-nav-bar.navbar
-    ul.nav.navbar-nav[data-hook]
-      li#logo
-        = logo
-      - Spree::Taxonomy.all.each do |taxonomy|
-        li
-          = link_to Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name), nested_taxons_path(taxonomy.root)
-    ul.nav.navbar-nav.navbar-right[data-hook]
-      = render 'spree/shared/login_bar'
-      - if spree_current_user.try(:admin?)
-        li
-          = link_to 'Admin', admin_path
-      li#link-to-cart[data-hook]
-        noscript
-          = link_to Spree.t(:cart), '/cart'
-        |    
-    script
-      | Spree.fetch_cart()
+    = render 'spree/shared/mobile_menu'
+    = render 'spree/shared/left_menu'
+    = render 'spree/shared/right_menu'

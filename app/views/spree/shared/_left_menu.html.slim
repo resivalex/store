@@ -1,0 +1,6 @@
+ul#left-menu[data-hook]
+  li#logo
+    = logo
+  - Spree::Taxonomy.all.each do |taxonomy|
+    li
+      = link_to Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name), nested_taxons_path(taxonomy.root)

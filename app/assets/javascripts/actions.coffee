@@ -12,3 +12,7 @@ $(document).ready ->
   
     autoplay: 3000
     autoplayDisableOnInteraction: false
+
+    $('#left-menu').slicknav
+        label : ''
+        prependTo: '#ccc'
