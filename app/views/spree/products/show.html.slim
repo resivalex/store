@@ -15,12 +15,17 @@
       .col-sm-6[data-hook="product_right_part"]
         div[data-hook="product_right_part_wrap"]
           #product-description[data-hook="product_description"]
-            h1.product-title[itemprop="name"]
+            h1.product-title itemprop="name"
               = @product.name
+            div
+              = render 'price'
+            .well[itemprop="description" data-hook="description"]
+              - if @product.description.present?
+                = product_description(@product) rescue Spree.t(:product_has_no_description)
+              - else
+                = Spree.t(:product_has_no_description)
             div[data-hook="product_properties"]
               = render :partial => 'properties'
-            / .well[itemprop="description" data-hook="description"]
-              / = product_description(@product) rescue Spree.t(:product_has_no_description)
             #cart-form[data-hook="cart_form"]
               = render :partial => 'cart_form'
           / = render :partial => 'taxons'

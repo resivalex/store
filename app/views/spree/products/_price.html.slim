@@ -1,0 +1,21 @@
+- if @product.price_present?(current_currency)
+  .col-md-12[data-hook="product_price"]
+    #product-price
+      h6.product-section-title
+        = Spree.t(:price)
+      div
+        span.lead.price.selling[itemprop="price"]
+          = display_price(@product)
+        span itemprop="priceCurrency" content="@product.currency"
+      - if @product.master.can_supply?
+        link[itemprop="availability" href="https://schema.org/InStock"]
+      - elsif @product.variants.empty?
+        br
+        span.out-of-stock
+          = Spree.t(:out_of_stock)
+- else
+  #product-price
+    br
+    div
+      span.price.selling[itemprop="price"]
+        = Spree.t('product_not_available_in_this_currency')
