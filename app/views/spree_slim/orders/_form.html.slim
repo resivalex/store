@@ -1,7 +1,7 @@
 = render partial: 'spree/shared/error_messages', locals: { target: @order }
 table#cart-detail.table[data-hook]
   thead
-    tr.active[data-hook="cart_items_headers"]
+    tr.active
       th.cart-item-description-header[colspan="2"]
         = Spree.t(:item)
       th.cart-item-price-header

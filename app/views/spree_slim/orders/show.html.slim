@@ -12,7 +12,7 @@ fieldset#order_summary[data-hook]
   #order[data-hook]
     = render partial: 'spree/shared/order_details', locals: { order: @order }
     br.clear
-    p[data-hook="links"]
+    p
       = link_to Spree.t(:back_to_store), spree.root_path, class: "button"
       - unless order_just_completed?(@order)
         - if try_spree_current_user && respond_to?(:spree_account_path)

@@ -1,8 +1,8 @@
 h1.taxon-title
   = @taxon.name
-div[data-hook="taxon_products"]
+div
   = render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon }
 - unless params[:keywords].present?
-  div[data-hook="taxon_children"]
+  div
     - cache [I18n.locale, @taxon] do
       = render partial: 'taxon', collection: @taxon.children

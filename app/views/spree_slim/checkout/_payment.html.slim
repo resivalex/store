@@ -1,8 +1,8 @@
-#payment.panel.panel-default[data-hook]
+#payment.panel.panel-default
   .panel-heading
     h3.panel-title
       = Spree.t(:payment_information)
-  .panel-body[data-hook="checkout_payment_step"]
+  .panel-body
     - if @payment_sources.present?
       .card_options
         = radio_button_tag 'use_existing_card', 'yes', true
@@ -13,7 +13,7 @@
         label[for="use_existing_card_no"]
           = Spree.t(:use_new_cc_or_payment_method)
       #existing_cards
-        p.form-group[data-hook="existing_cards"]
+        p.form-group
 
         table.existing-credit-card-list
           tbody
@@ -33,26 +33,22 @@
                 = card.year
               td
                 = radio_button_tag "order[existing_card]", card.id, (card == @payment_sources.first), { class: "existing-cc-radio" }
-    ul#payment-method-fields.list-group[data-hook]
+    ul#payment-method-fields.list-group
       - @order.available_payment_methods.each do |method|
         li.list-group-item
           label
-            = radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first
+            = radio_button_tag "order[payments_attributes][payment_method_id]", method.id, method == @order.available_payment_methods.first
             = Spree.t(method.name, :scope => :payment_methods, :default => method.name)
-    ul#payment-methods.nav[data-hook]
+    ul#payment-methods.nav
       - @order.available_payment_methods.each do |method|
-        |  <li id="payment_method_
-        = method.id
-        | " class="
-        = 'last' if method == @order.available_payment_methods.last
-        | " data-hook> 
+        li id="payment_method_#{method.id}" class="'last' if method == @order.available_payment_methods.last"
         fieldset
           = render :partial => "spree/checkout/payment/#{method.method_type}", :locals => { :payment_method => method }
-    p.field[data-hook="coupon_code"]
+    p.field
       = form.label :coupon_code
       br
       = form.text_field :coupon_code, :class => 'form-control'
-.well.text-right.form-buttons[data-hook="buttons"]
+.well.text-right.form-buttons
   = submit_tag Spree.t(:save_and_continue), class: 'btn btn-lg btn-success primary'
   script
     | Spree.disableSaveOnClick();

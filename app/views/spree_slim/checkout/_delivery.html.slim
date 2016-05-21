@@ -2,15 +2,15 @@
   .panel-heading
     h3.panel-title
       = Spree.t(:delivery)
-  .panel-body[data-hook="shipping_method_inner"]
+  .panel-body
     #methods
       = form.fields_for :shipments do |ship_form|
         .shipment
-          h4.stock-location[data-hook="stock-location"]
+          h4.stock-location
             = Spree.t(:package_from)
-            strong.stock-location-name[data-hook="stock-location-name"]
+            strong.stock-location-name
               = ship_form.object.stock_location.name
-          table.table.stock-contents[data-hook="stock-contents"]
+          table.table.stock-contents
             colgroup
               col[style="width: 10%;"]
               col[style="width: 60%;"]
@@ -49,9 +49,9 @@
                     = rate.display_cost
       - if @differentiator.try(:missing?)
         .shipment.unshippable
-          h3.stock-location[data-hook="stock-location"]
+          h3.stock-location
             = Spree.t(:unshippable_items)
-          table.table.stock-contents[data-hook="stock-missing"]
+          table.table.stock-contents
             colgroup
               col[style="width: 10%;"]
               col[style="width: 60%;"]
@@ -84,5 +84,5 @@
       = Spree.t(:shipping_instructions)
     = form.text_area :special_instructions, :cols => 40, :rows => 4, :class => "form-control"
 br
-.well.text-right.form-buttons[data-hook="buttons"]
+.well.text-right.form-buttons
   = submit_tag Spree.t(:save_and_continue), :class => 'btn btn-lg btn-success'

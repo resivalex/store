@@ -5,7 +5,7 @@
     - filters.each do |filter|
       - labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]}
       - next if labels.empty?
-      .navigation[data-hook="navigation"]
+      .navigation
         h4.filter-title
           = filter[:name]
         ul.list-group
@@ -16,7 +16,7 @@
               = label
               | " name="search[
               = filter[:scope].to_s
-              | ][]" value="
+              | ]" value="
               = val
               | " 
               = params[:search] && params[:search][filter[:scope]] && params[:search][filter[:scope]].include?(val.to_s) ? "checked" : ""

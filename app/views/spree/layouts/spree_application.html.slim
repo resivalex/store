@@ -1,12 +1,12 @@
 doctype 5
 html lang=I18n.locale
-  head[data-hook="inside_head"]
+  head
     - content_for :head
       = javascript_include_tag 'application'
       = stylesheet_link_tag 'application'
     end
     = render partial: 'spree/shared/head'
-  body class=body_class id="@body_id || 'default'" data-hook="body"
+  body class=body_class id="@body_id || 'default'"
     = render partial: 'spree/shared/google_analytics.js'
     #under-header
     #fixed-header
