@@ -1,7 +1,7 @@
 ul#right-menu
   - if spree_current_user.try(:admin?)
     li
-      = link_to admin_path do
+      = link_to admin_path, title: 'Админка' do
         span.glyphicon.glyphicon-king
   = render 'spree/shared/login_bar'
   li#link-to-cart

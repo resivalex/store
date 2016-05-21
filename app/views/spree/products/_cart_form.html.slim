@@ -20,11 +20,19 @@
     - else
       = hidden_field_tag "variant_id", @product.master.id
     - if @product.price_present?(current_currency)
-      .col-md-5
+      .col-md-12
         .add-to-cart
-          br
-          .input-group
-            = number_field_tag :quantity, 1, :class => 'title form-control', :min => 1
-            span.input-group-btn
-              = button_tag :class => 'btn btn-success', :id => 'add-to-cart-button', :type => :submit do
-                = Spree.t(:add_to_cart)
+          .row
+            .form-group
+              label.col-sm-4.col-md-3 Артикул
+              .col-sm-8.col-md-9
+                input.form-control type="text" readonly=true = @product.sku
+
+            .form-group
+              label.col-sm-4.col-md-3 Количество
+              .col-sm-8.col-md-9
+                = number_field_tag :quantity, 1, :class => 'title form-control col-sm-6', :min => 1
+            .form-group
+              .col-sm-offset-4.col-sm-8.col-md-offset-3.col-md-9
+                = button_tag :class => 'btn btn-black form-control', :id => 'add-to-cart-button', :type => :submit do
+                  = Spree.t(:add_to_cart)

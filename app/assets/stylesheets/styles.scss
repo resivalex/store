@@ -86,3 +86,69 @@ footer {
 
   color: white;
 }
+
+.add-to-cart {
+  .btn {
+    border-radius: 0;
+    height: 45px;
+    padding: 10px;
+  }
+
+  .btn-black {
+    background-color: black;
+    color: white;
+  }
+
+  .form-group input {
+    margin-bottom: 10px;
+  }
+}
+
+#product-price {
+  padding-bottom: 10px;
+
+  .lead {
+    font-size: 24px;
+  }
+}
+
+#product-description {
+  .form-control {
+    border-radius: 0;
+  }
+
+  .product-title {
+    margin: 15px 0;
+  }
+
+  .well {
+    border-radius: 0;
+  }
+}
+
+#add-to-cart-button {
+  margin-bottom: 15px;
+}
+
+.progress-steps {
+  margin: 0 0 10px;
+}
+
+.product-show-body {
+  padding-top: 10px;
+}
+
+.product-index {
+  padding-top: 10px;
+
+  li {
+    font-size: 30px;
+    list-style-type: none;
+
+    a {
+      color: black;
+      padding: 10px;
+      text-decoration: underline;
+    }
+  }
+}

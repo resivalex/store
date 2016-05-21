@@ -1,0 +1,27 @@
+- content_for :google_analytics do
+  = render partial: 'spree/shared/google_checkout.js', locals: { order: @order, step_number: (@order.checkout_steps.index(@order.state) + 1) }
+#checkout
+  = render partial: 'spree/shared/error_messages', locals: { target: @order }
+  .col-md-12
+    h1
+      = Spree.t(:checkout)
+  div class=(if @order.state != 'confirm' then 'col-md-9' else 'col-md-12' end)
+    = checkout_progress
+    = form_for @order, url: update_checkout_path(@order.state), html: { id: "checkout_form_#{@order.state}" } do |form|
+      - if @order.state == 'address' || !@order.email?
+        .panel.panel-default
+          .panel-body
+            .form-group
+              = form.label :email
+              = form.text_field :email, class: 'form-control'
+      = form.hidden_field :state_lock_version
+      = render @order.state, form: form
+  - if @order.state != 'confirm'
+    #checkout-summary.col-md-3
+      = render partial: 'summary', locals: { order: @order }
+javascript:
+  Spree.current_order_id = "#{@order.number}";
+  Spree.current_order_token = "#{@order.guest_token}";
+
+- if I18n.locale != :en
+  = javascript_include_tag 'jquery.validate/localization/messages_' + I18n.locale.to_s.downcase.gsub('-', '')
