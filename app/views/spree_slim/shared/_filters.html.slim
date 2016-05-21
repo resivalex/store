@@ -16,7 +16,7 @@
               = label
               | " name="search[
               = filter[:scope].to_s
-              | ]" value="
+              | ][]" value="
               = val
               | " 
               = params[:search] && params[:search][filter[:scope]] && params[:search][filter[:scope]].include?(val.to_s) ? "checked" : ""
