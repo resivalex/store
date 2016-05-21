@@ -12,7 +12,7 @@ div
       h6.search-results-title
         = Spree.t(:search_results, keywords: h(params[:keywords]))
 - if products.any?
-  #products.row[data-hook]
+  #products.row
     - products.each do |product|
       - url = spree.product_url(product, taxon_id: @taxon.try(:id))
       |  <div id="product_

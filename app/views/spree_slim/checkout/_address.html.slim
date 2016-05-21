@@ -1,6 +1,6 @@
 .row
   .col-sm-6
-    #billing.panel.panel-default[data-hook]
+    #billing.panel.panel-default
       = form.fields_for :bill_address do |bill_form|
         .panel-heading
           h3.panel-title
@@ -8,7 +8,7 @@
         .panel-body
           = render :partial => 'spree/address/form', :locals => { :form => bill_form, :address_type => 'billing', :address => @order.bill_address }
   .col-sm-6
-    #shipping.panel.panel-default[data-hook]
+    #shipping.panel.panel-default
       = form.fields_for :ship_address do |ship_form|
         .panel-heading
           h3.panel-title

@@ -5,10 +5,10 @@
       .col-sm-6
         div
           #product-images
-            #main-image.panel.panel-default[data-hook]
+            #main-image.panel.panel-default
               .panel-body.text-center
                 = render :partial => 'image'
-            #thumbnails[data-hook]
+            #thumbnails
               = render :partial => 'thumbnails'
           div
             = render :partial => 'promotions'

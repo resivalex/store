@@ -37,7 +37,7 @@ table#line-items.table
   col[width="5%" valign="middle" halign="center"]
   col[width="5%" valign="middle" halign="center"]
   col[width="5%" valign="middle" halign="center"]
-  thead[data-hook]
+  thead
     tr.active
       th[colspan="2"]
         = Spree.t(:item)
@@ -48,7 +48,7 @@ table#line-items.table
       th.total
         span
           = Spree.t(:total)
-  tbody[data-hook]
+  tbody
     - order.line_items.each do |item|
       tr
         td

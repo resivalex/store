@@ -1,4 +1,4 @@
-#shipping_method.panel.panel-default[data-hook]
+#shipping_method.panel.panel-default
   .panel-heading
     h3.panel-title
       = Spree.t(:delivery)
@@ -78,7 +78,7 @@
               td.item-price
                 = display_price(variant)
   - if Spree::Config[:shipping_instructions]
-    p#minstrs[data-hook]
+    p#minstrs
 
     h4
       = Spree.t(:shipping_instructions)

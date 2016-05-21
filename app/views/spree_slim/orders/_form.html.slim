@@ -1,5 +1,5 @@
 = render partial: 'spree/shared/error_messages', locals: { target: @order }
-table#cart-detail.table[data-hook]
+table#cart-detail.table
   thead
     tr.active
       th.cart-item-description-header[colspan="2"]
@@ -11,7 +11,7 @@ table#cart-detail.table[data-hook]
       th.cart-item-total-header
         = Spree.t(:total)
       th.cart-item-delete-header
-  tbody#line_items[data-hook]
+  tbody#line_items
     = render partial: 'spree/orders/line_item', collection: order_form.object.line_items, locals: { order_form: order_form }
   - if @order.adjustments.nonzero.exists? || @order.line_item_adjustments.nonzero.exists? || @order.shipment_adjustments.nonzero.exists? || @order.shipments.any?
     tr.cart-subtotal

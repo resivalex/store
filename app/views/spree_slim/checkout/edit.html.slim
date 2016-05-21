@@ -1,6 +1,6 @@
 - content_for :google_analytics do
   = render partial: 'spree/shared/google_checkout.js', locals: { order: @order, step_number: (@order.checkout_steps.index(@order.state) + 1) }
-#checkout[data-hook]
+#checkout
   = render partial: 'spree/shared/error_messages', locals: { target: @order }
   .row
     .col-sm-3

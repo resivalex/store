@@ -13,7 +13,7 @@ div
         = Spree.t(:search_results, keywords: h(params[:keywords]))
 - if products.any?
   .container
-    #products.row[data-hook]
+    #products.row
       - products.each do |product|
         - url = spree.product_url(product, taxon_id: @taxon.try(:id))
         div.col-md-4.col-sm-6.product-list-item id="product_#{product.id}" itemscope=() itemtype="https://schema.org/Product"

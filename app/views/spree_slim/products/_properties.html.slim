@@ -1,7 +1,7 @@
 - unless @product_properties.empty?
   h3.product-section-title
     = Spree.t('properties')
-  table#product-properties.table.table-striped[data-hook]
+  table#product-properties.table.table-striped
     tbody
       - @product_properties.each do |product_property|
         - css_class = cycle('even', 'odd', :name => "properties")

@@ -1,9 +1,9 @@
 - if !@product.taxons.blank?
-  #taxon-crumbs.five[data-hook]
+  #taxon-crumbs.five
     h3.product-section-title
       = Spree.t(:look_for_similar_items)
     div
-      ul#similar_items_by_taxon.list-group[data-hook]
+      ul#similar_items_by_taxon.list-group
         - @product.taxons.each do |taxon|
           li.list-group-item
             = link_to taxon.name, seo_url(taxon)

@@ -2,7 +2,7 @@ thead
   tr
     th.cart-adjustment-header[colspan="6"]
       = Spree.t(:order_adjustments)
-tbody#cart_adjustments[data-hook]
+tbody#cart_adjustments
   - if @order.line_item_adjustments.exists?
     - @order.line_item_adjustments.promotion.eligible.group_by(&:label).each do |label, adjustments|
       = render "spree/orders/adjustment_row", :label => label, :adjustments => adjustments, :type => Spree.t(:promotion)

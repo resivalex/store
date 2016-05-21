@@ -20,9 +20,9 @@ div
                 = Spree.t(:update)
               = button_tag class: 'btn btn-lg btn-success', id: 'checkout-link', name: 'checkout' do
                 = Spree.t(:checkout)
-    #empty-cart.col-md-6.pull-left[data-hook]
+    #empty-cart.col-md-6.pull-left
       = form_tag empty_cart_path, method: :put do
-        p#clear_cart_link[data-hook]
+        p#clear_cart_link
           = submit_tag Spree.t(:empty_cart), class: 'btn btn-default'
           = Spree.t(:or)
           = link_to Spree.t(:continue_shopping), products_path, class: 'continue'
