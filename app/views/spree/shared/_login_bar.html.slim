@@ -1,9 +1,11 @@
 - if spree_current_user
   li
-    = link_to spree.account_path do
+    = link_to spree.account_path, title: 'Мой аккаунт' do
       span.glyphicon.glyphicon-cog
   li
-    = link_to Spree.t(:logout), spree.logout_path
+    = link_to spree.logout_path do
+      span.glyphicon.glyphicon-arrow-right
+      / = Spree.t(:logout)
 - else
   li#link-to-login
     = link_to Spree.t(:login), spree.login_path

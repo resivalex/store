@@ -1,0 +1,88 @@
+
+.product-body {
+  height: 220px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+// Center cart line items
+table {
+  &.table > tbody > tr {
+    &.line-item td, &.stock-item td {
+      vertical-align: middle;
+    }
+  }
+
+  &#line-items {
+    > tbody, > tfoot {
+      > tr > td {
+        vertical-align: middle;
+
+        &.order-qty {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+// Updated credit-card image
+#credit-card-image {
+  margin-top: -10px;
+}
+
+.existing-credit-card-list td {
+  padding: 5px;
+}
+
+#products {
+  .product-list-item {
+    .info {
+      display: block;
+      font-size: 16px;
+      padding-bottom: 15px;
+    }
+
+    .price {
+      display: block;
+      font-size: 13px;
+      padding-bottom: 30px;
+    }
+
+    a {
+      color: black;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.taxon-title {
+  font-size: 30px;
+  font-weight: normal;
+  padding: 5px 20px;
+}
+
+.alert {
+  border-radius: 0;
+  margin: 0;
+}
+
+.swiper-container {
+  width: 100%;
+  padding-bottom: 50%;
+  height: 0;
+
+  img {
+    width: 100%;
+  }
+}
+
+footer {
+  background: black;
+  height: 50px;
+
+  color: white;
+}

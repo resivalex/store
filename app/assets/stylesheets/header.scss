@@ -1,0 +1,117 @@
+#spree-header {
+  background: black;
+  background-size: cover;
+
+  #logo {
+    img {
+      height: 20px;
+    }
+  }
+
+  .navbar {
+    border: 0;
+    color: white;
+    margin-bottom: 0;
+
+    .glyphicon.glyphicon-menu-hamburger {
+      font-size: 30px;
+      position: relative;
+      top: 10px;
+    }
+  }
+}
+
+.cart-info {
+  .count {
+    background: #446;
+    border-radius: 8px;
+    margin: 0 5px;
+    padding: 2px 6px;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+#fixed-header, #under-header {
+  background: black;
+}
+
+#under-header {
+  height: 50px;
+}
+
+#fixed-header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 100;
+}
+
+.slicknav_btn {
+  background-color: #4c4c4c;
+  float: left;
+}
+
+$menu_threshold: 800px;
+
+.slicknav_menu {
+  background: black;
+  display: block;
+
+  @media (min-width: $menu_threshold) {
+    display: none;
+  }
+}
+
+#left-menu, #right-menu {
+  padding: 0;
+
+  li {
+    float: left;
+    list-style-type: none;
+
+    a {
+      display: block;
+      padding: 15px;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  a {
+    color: white;
+  }
+}
+
+#left-menu {
+  display: none;
+
+  @media (min-width: $menu_threshold) {
+    display: block;
+  }
+}
+
+#right-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.slicknav_nav {
+  a {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 0;
+      color: white;
+      text-decoration: underline;
+    }
+    
+    img {
+      height: 20px;
+    }
+  }
+}

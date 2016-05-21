@@ -2,11 +2,11 @@
 - is_empty = simple_current_order.nil? || simple_current_order.item_count.zero?
 - css_class = is_empty ? 'empty' : 'full'
 
-= link_to spree.cart_path, class: "cart-info #{css_class}" do
+= link_to spree.cart_path, class: "cart-info #{css_class}", title: 'Перейти в корзину' do
   span.glyphicon.glyphicon-shopping-cart
   / = " #{text}: "
   - if is_empty
-    = " (#{Spree.t('empty')})"
+    / = " (#{Spree.t('empty')})"
   - else
     span.count = simple_current_order.item_count
-    span.amount = simple_current_order.display_total
+    span.amount = simple_current_order.display_total.money.format(no_cents: true)
