@@ -1,0 +1,21 @@
+- @body_id = 'cart'
+.clearfix
+  .col-md-12
+    h1
+      = Spree.t(:shopping_cart)
+    - if @order.line_items.empty?
+      div
+        .alert.alert-info
+          = Spree.t(:your_cart_is_empty)
+    - else
+      = form_for @order, url: update_cart_path, html: { id: 'update-cart' } do |order_form|
+        div
+          = render partial: 'form', locals: { order_form: order_form }
+        = button_tag class: 'btn btn-success pull-right', id: 'checkout-link', name: 'checkout' do
+          = Spree.t(:checkout)
+        = button_tag class: 'btn btn-primary pull-right', id: 'update-button' do
+          = Spree.t(:update)
+      #empty-cart
+        = form_tag empty_cart_path, method: :put do
+          p#clear_cart_link
+            = submit_tag Spree.t(:empty_cart), class: 'btn btn-default'

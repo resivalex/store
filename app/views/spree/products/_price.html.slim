@@ -5,7 +5,7 @@
       /   = Spree.t(:price)
       div
         span.lead.price.selling[itemprop="price"]
-          = display_price(@product)
+          = @product.price_in(current_currency).display_price.money.format(no_cents: true)
         span itemprop="priceCurrency" content="@product.currency"
       - if @product.master.can_supply?
         link[itemprop="availability" href="https://schema.org/InStock"]

@@ -8,22 +8,51 @@ h1 {
 }
 
 // Center cart line items
-table {
-  &.table > tbody > tr {
-    &.line-item td, &.stock-item td {
-      vertical-align: middle;
+// table {
+//   &.table > tbody > tr {
+//     &.line-item td, &.stock-item td {
+//       vertical-align: middle;
+//     }
+//   }
+
+//   &#line-items {
+//     > tbody, > tfoot {
+//       > tr > td {
+//         vertical-align: middle;
+
+//         &.order-qty {
+//           text-align: center;
+//         }
+//       }
+//     }
+//   }
+// }
+
+#cart-detail {
+  .lead {
+    white-space: nowrap;
+  }
+
+  .line-result {
+    white-space: nowrap;
+
+    .line_item_quantity {
+      border-radius: 0;
+      display: inline;
+      width: 70px;
     }
   }
 
-  &#line-items {
-    > tbody, > tfoot {
-      > tr > td {
-        vertical-align: middle;
+  .line-item-article {
+    position: absolute;
+  }
 
-        &.order-qty {
-          text-align: center;
-        }
-      }
+  a {
+    color: black;
+    text-decoration: underline;
+
+    &.delete {
+      color: #f77;
     }
   }
 }
