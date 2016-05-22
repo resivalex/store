@@ -1,32 +1,36 @@
 - variant = line_item.variant
 = order_form.fields_for :line_items, line_item do |item_form|
   .row
-    .col-md-6
-      .cart-item-image.pull-left
-        - if variant.images.length == 0
-          = link_to small_image(variant.product), variant.product
-        - else
-          = link_to image_tag(variant.images.first.attachment.url(:small)), variant.product
-      .cart-item-description.pull-left
-        h4
-          = link_to line_item.name, product_path(variant.product)
-        = variant.options_text
-        - if line_item.insufficient_stock?
-          span.out-of-stock
-            = Spree.t(:out_of_stock)
-            |   
-            br
-        / span.line-item-description
-          = line_item_description_text(line_item.description)
-        span.line-item-article
-          = line_item.sku
-    .col-md-6.text-right
-      span.line-result
-        span.lead.cart-item-price
-          = line_item.single_money.money.format(no_cents: true)
-        = item_form.number_field :quantity, min: 0, class: "form-control line_item_quantity", size: 5
-        span.lead.cart-item-total
-          strong
-            = line_item.display_amount.money.format(no_cents: true) unless line_item.quantity.nil?
+    .col-sm-6
+      .row
+        .cart-item-description.col-md-6.col-lg-7.text-center.col-md-push-6.col-lg-push-5
+          h4
+            = link_to line_item.name, product_path(variant.product)
+          = variant.options_text
+          - if line_item.insufficient_stock?
+            span.out-of-stock
+              = Spree.t(:out_of_stock)
+              |   
+              br
+          / span.line-item-description
+            = line_item_description_text(line_item.description)
+          span.line-item-article
+            = line_item.sku
+        .cart-item-image.col-md-6.col-lg-5.text-center.col-md-pull-6.col-md-pull-7
+          - if variant.images.length == 0
+            = link_to small_image(variant.product), variant.product
+          - else
+            = link_to image_tag(variant.images.first.attachment.url(:small)), variant.product
+    .col-sm-6.text-right
+      div
+        span.line-result
+          span.lead.cart-item-price
+            = line_item.single_money.money.format(no_cents: true)
+          span.glyphicon.glyphicon-remove
+          = item_form.number_field :quantity, min: 0, class: "form-control line_item_quantity", size: 5
+          span.lead.cart-item-total
+            strong
+              = line_item.display_amount.money.format(no_cents: true) unless line_item.quantity.nil?
+      div
         span.cart-item-delete
-          = link_to content_tag(:span, '', class: 'glyphicon glyphicon-remove'), '#', class: 'delete', id: "delete_#{dom_id(line_item)}"
+          = link_to 'Удалить из корзины', '#', class: 'delete', id: "delete_#{dom_id(line_item)}"

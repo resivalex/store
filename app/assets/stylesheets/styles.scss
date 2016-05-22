@@ -29,6 +29,10 @@ h1 {
 // }
 
 #cart-detail {
+  .cart-item-image {
+    padding-bottom: 10px;
+  }
+
   .lead {
     white-space: nowrap;
   }
@@ -41,10 +45,38 @@ h1 {
       display: inline;
       width: 70px;
     }
+
+    .glyphicon.glyphicon-remove {
+      margin-left: 20px;
+      margin-right: 20px;
+
+      @media (max-width: 767px) {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+
+    .cart-item-total {
+      display: inline-block;
+
+      @media (max-width: 767px) {
+        margin-left: 8px;
+      }
+
+      @media (min-width: 768px) {
+        width: 110px;
+      }
+    }
   }
 
-  .line-item-article {
-    position: absolute;
+  & > .row {
+    border-top: dashed 1px #ccc;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    &:last-of-type {
+      border-bottom: solid 1px #ccc;
+    }
   }
 
   a {
@@ -52,8 +84,26 @@ h1 {
     text-decoration: underline;
 
     &.delete {
-      color: #f77;
+      color: #777;
     }
+  }
+}
+
+.margin-top-5 {
+  margin: 5px;
+}
+
+.cart-total {
+  background-color: #ccc;
+  padding: 10px;
+
+  .summary {
+    font-size: 24px;
+    text-align: right;
+  }
+
+  .full-width {
+    width: 100%;
   }
 }
 
@@ -117,17 +167,6 @@ footer {
 }
 
 .add-to-cart {
-  .btn {
-    border-radius: 0;
-    height: 45px;
-    padding: 10px;
-  }
-
-  .btn-black {
-    background-color: black;
-    color: white;
-  }
-
   .form-group input {
     margin-bottom: 10px;
   }

@@ -1,5 +1,5 @@
 = render partial: 'spree/shared/error_messages', locals: { target: @order }
-#cart-detail.table
+#cart-detail.col-md-12
   = render partial: 'spree/orders/line_item', collection: order_form.object.line_items, locals: { order_form: order_form }
 
 
@@ -13,9 +13,3 @@
           = order_form.object.display_item_total
       span
     = render "spree/orders/adjustments"
-  .col-md-6.warning.cart-total
-    span align="right"
-      h5
-        = Spree.t(:total)
-    span.lead
-      = order_form.object.display_total
