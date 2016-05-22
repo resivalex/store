@@ -26,7 +26,7 @@
             .form-group
               label.col-sm-4.col-md-3 Артикул
               .col-sm-8.col-md-9
-                input.form-control type="text" readonly=true value=@product.sku
+                input.form-control type="text" readonly=true value=(@product.sku)
 
             .form-group
               label.col-sm-4.col-md-3 Количество
@@ -34,5 +34,5 @@
                 = number_field_tag :quantity, 1, :class => 'title form-control col-sm-6', :min => 1
             .form-group
               .col-sm-offset-4.col-sm-8.col-md-offset-3.col-md-9
-                = button_tag :class => 'btn black-button form-control', :id => 'add-to-cart-button', :type => :submit do
+                button#add-to-cart-button.btn.black-button.form-control type="submit"
                   = Spree.t(:add_to_cart)
