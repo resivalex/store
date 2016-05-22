@@ -1,0 +1,8 @@
+h1 События
+= form_tag push_events_path do
+  button type="submit" Добавить событие
+- @events.each do |event|
+  .event-tile.col-md-4.col-sm-6
+    = link_to event.title, event_path(event)
+    = form_tag event_path(event), method: :delete do
+      button type="submit" Удалить

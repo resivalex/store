@@ -2,4 +2,4 @@
   ul
     - Spree::Taxonomy.all.each do |taxonomy|
       li
-        = link_to Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name), nested_taxons_path(taxonomy.root)
+        = link_to Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name), spree.nested_taxons_path(taxonomy.root)

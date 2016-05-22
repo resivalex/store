@@ -383,6 +383,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_list
   better_errors
   byebug
   capistrano-bundler (~> 1.1.2)

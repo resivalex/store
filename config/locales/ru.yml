@@ -833,7 +833,7 @@ ru:
     logged_in_as: "Пользователь"
     logged_in_succesfully: "Вы вошли в систему"
     logged_out: "Вы вышли из системы."
-    login: "Логин"
+    login: "Войти"
     login_as_existing: "Войти как покупатель"
     login_failed: "Вход не выполнен."
     login_name: "Логин"
