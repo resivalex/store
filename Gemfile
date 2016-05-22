@@ -20,6 +20,7 @@ gem 'spree_yandex_kassa', git:    'git@github.com:SecretAgents/yandex_kassa.git'
 # gem 'dotenv-rails'
 # gem "paperclip", "~> 5.0.0.beta1"
 gem 'acts_as_list'
+gem 'mercury-rails', github: 'jejacks0n/mercury'
 gem 'pg' # PostgreSQL adapter
 gem 'russian', '~> 0.6.0'
 gem 'slim' # Markup

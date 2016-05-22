@@ -10,6 +10,14 @@ class EventsController < Spree::BaseController
     @event = Event.find(params[:id])
   end
 
+  def update
+    @event = Event.find(params[:id])
+    @event.title = params[:content][:event_title][:value]
+    @event.content = params[:content][:event_content][:value]
+    @event.save!
+    render nothing: true
+  end
+
   def push
     Event.create do |e|
       e.title = 'Title'

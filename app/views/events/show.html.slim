@@ -1,2 +1,3 @@
-h1 = @event.title
-== @event.content
+h1#event_title data-mercury="simple" = @event.title
+#event_content data-mercury="full" == @event.content
+= link_to "Edit Page", "/editor" + request.path, id: "edit_link"
