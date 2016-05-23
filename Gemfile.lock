@@ -403,6 +403,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mercury-rails!
+  paperclip
   pg
   quiet_assets
   rails (= 4.2.6)

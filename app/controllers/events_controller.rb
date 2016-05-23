@@ -14,13 +14,21 @@ class EventsController < Spree::BaseController
     @event = Event.find(params[:id])
     @event.title = params[:content][:event_title][:value]
     @event.content = params[:content][:event_content][:value]
+    image_src = begin
+      params[:content][:event_image][:attributes][:src]
+    rescue
+      ''
+    end
+    image_match = /system\/images\/(\d+)/.match(image_src)
+    image_id = image_match ? image_match[1].to_i : nil
+    @event.mercury_image_id = image_id
     @event.save!
     render nothing: true
   end
 
   def push
     Event.create do |e|
-      e.title = 'Title'
+      e.title = 'Event'
       e.content = 'Content'
     end
     redirect_to :back, notice: 'Добавлено новое событие'

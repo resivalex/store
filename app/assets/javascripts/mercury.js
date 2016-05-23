@@ -270,7 +270,7 @@ window.Mercury = {
     // `{image: {url: '[your provided url]'}`
     uploading: {
       enabled: true,
-      allowedMimeTypes: ['image/jpeg', 'image/gif', 'image/png'],
+      allowedMimeTypes: ['image/jpeg', 'image/jpg', 'image/gif', 'image/png'],
       maxFileSize: 1235242880,
       inputName: 'image[image]',
       url: '/mercury/images',
