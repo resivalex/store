@@ -26,3 +26,7 @@ $(document).on 'click', '.submenu-title', ->
 $(document).click (event) ->
     unless $(event.target).closest('.submenu').length > 0 || $(event.target).is('.submenu')
       $('.submenu').addClass 'hidden'
+
+$(document).on 'click', '.cart-item-delete .delete', ->
+  $(@).closest('.math').find('.line_item_quantity').val(0)
+  $(@).closest('form').submit()
