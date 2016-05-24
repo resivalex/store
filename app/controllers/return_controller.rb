@@ -1,0 +1,2 @@
+class ReturnController < PageController
+end
