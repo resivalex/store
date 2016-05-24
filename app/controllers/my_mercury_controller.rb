@@ -1,8 +1,9 @@
 class MyMercuryController < MercuryController
-  before_filter :admin_required
+  before_filter :require_admin
 
 private
-  def admin_required
+
+  def require_admin
     unless current_spree_user.try(:admin?)
       redirect_to '/', alert: 'Access denied'
     end

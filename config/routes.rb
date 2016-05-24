@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :images
   end
   mount Mercury::Engine => '/'
+
   resources :events do
     collection do
       post :push
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
       post :down
     end
   end
+  resources :about
+  put '/about' => 'about#update'
 
   mount Spree::Core::Engine, at: '/'
 end

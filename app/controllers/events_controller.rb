@@ -1,7 +1,7 @@
 class EventsController < Spree::BaseController
   include Spree::Core::ControllerHelpers
   helper Spree::BaseHelper
-  before_filter :admin_required, except: [:index, :show]
+  before_filter :require_admin, except: [:index, :show]
 
   def index
     @events = Event.all
@@ -58,7 +58,7 @@ class EventsController < Spree::BaseController
 
 private
 
-  def admin_required
+  def require_admin
     unless current_spree_user.try(:admin?)
       redirect_to '/', alert: 'Access denied'
     end

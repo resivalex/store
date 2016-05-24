@@ -4,4 +4,6 @@ ul#left-menu
   - Spree::Taxonomy.all.each do |taxonomy|
     = render 'spree/shared/taxon_menu', taxon: taxonomy.root
   li
+    = link_to 'О нас', main_app.about_index_path
+  li
     = link_to 'События', main_app.events_path
