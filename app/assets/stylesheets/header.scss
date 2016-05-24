@@ -73,21 +73,19 @@ $menu_threshold: 800px;
   padding: 0;
 
   li {
+    background-color: black;
     float: left;
     list-style-type: none;
 
     a {
+      color: white;
       display: block;
       padding: 15px;
     }
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.4);
+      background-color: #333;
     }
-  }
-
-  a {
-    color: white;
   }
 }
 
@@ -103,6 +101,33 @@ $menu_threshold: 800px;
   position: fixed;
   top: 0;
   right: 0;
+}
+
+.submenu-title {
+  .glyphicon.glyphicon-triangle-bottom {
+    font-size: 10px;
+    margin-left: 3px;
+
+    @media (max-width: $menu_threshold - 1) {
+      display: none;
+    }
+  }
+}
+
+.slicknav_nav .hidden {
+  display: block !important;
+
+  &.slicknav_hidden {
+    display: none !important;
+  }
+}
+
+.submenu {
+  padding: 0;
+
+  @media (min-width: $menu_threshold) {
+    position: absolute;
+  }
 }
 
 .slicknav_nav {

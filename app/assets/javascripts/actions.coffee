@@ -16,3 +16,13 @@ $(document).ready ->
     $('#left-menu').slicknav
         label : ''
         prependTo: '#ccc'
+
+$(document).on 'click', '.submenu-title', ->
+  $('.submenu').addClass 'hidden'
+  $submenu = $(@).parent().find('.submenu')
+  $submenu.removeClass 'hidden'
+  return false;
+
+$(document).click (event) ->
+    unless $(event.target).closest('.submenu').length > 0 || $(event.target).is('.submenu')
+      $('.submenu').addClass 'hidden'

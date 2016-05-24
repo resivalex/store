@@ -1,0 +1,10 @@
+li
+  - if taxon.children.present?
+    a.submenu-title href='#'
+      = taxon.name
+      span.glyphicon.glyphicon-triangle-bottom
+    ul.submenu.hidden
+      - taxon.children.each do |child_taxon|
+        = render 'spree/shared/taxon_menu', taxon: child_taxon
+  - else
+    = link_to Spree.t(taxon.name), spree.nested_taxons_path(taxon)
