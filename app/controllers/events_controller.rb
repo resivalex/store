@@ -1,6 +1,7 @@
 class EventsController < Spree::BaseController
   include Spree::Core::ControllerHelpers
   helper Spree::BaseHelper
+  before_filter :admin_required, except: [:index, :show]
 
   def index
     @events = Event.all
@@ -26,6 +27,20 @@ class EventsController < Spree::BaseController
     render nothing: true
   end
 
+  def up
+    event = Event.find(params[:id])
+    title = event.title
+    event.move_lower
+    redirect_to :back, notice: "Событие #{title} перемещено наверх"
+  end
+
+  def down
+    event = Event.find(params[:id])
+    title = event.title
+    event.move_higher
+    redirect_to :back, notice: "Событие #{title} перемещено вниз"
+  end
+
   def push
     Event.create do |e|
       e.title = 'Event'
@@ -39,5 +54,13 @@ class EventsController < Spree::BaseController
     title = event.title
     event.destroy
     redirect_to :back, notice: "Событие #{title} удалено"
+  end
+
+private
+
+  def admin_required
+    unless current_spree_user.try(:admin?)
+      redirect_to '/', alert: 'Access denied'
+    end
   end
 end

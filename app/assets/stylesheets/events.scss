@@ -23,6 +23,18 @@
     top: 0;
     right: 0;
   }
+
+  .up {
+    position: absolute;
+    top: 30px;
+    right: 0;
+  }
+
+  .down {
+    position: absolute;
+    top: 60px;
+    right: 0;
+  }
 }
 
 #event_image {

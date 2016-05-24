@@ -2,4 +2,5 @@
   h1#event_title data-mercury="simple" = @event.title
   img#event_image src=(@event.mercury_image.try(:url, :original)) data-mercury="image"
   #event_content data-mercury="full" == @event.content
-  = link_to "Edit Page", "/editor" + request.path, id: "edit_link"
+  - if spree_current_user.try(:admin?)
+    = link_to "Edit Page", "/editor" + request.path, id: "edit_link"
