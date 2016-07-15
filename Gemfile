@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby `cat .ruby-version`
 
 # Base
 gem 'rails', '4.2.6'
