@@ -1,0 +1,10 @@
+- url = spree.product_url(product)
+div
+  .text-center
+    = link_to small_image(product, itemprop: 'image'), url, itemprop: 'url'
+  .text-center.title
+    = link_to truncate(product.name, length: 50), url, class: 'info', itemprop: 'name', title: product.name
+  .text-center.price
+    span[itemprop="offers" itemscope itemtype="https://schema.org/Offer"]
+      span[itemprop="price"]
+        = display_price(product)

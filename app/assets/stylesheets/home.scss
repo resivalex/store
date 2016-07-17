@@ -18,7 +18,17 @@
 }
 
 .main-board-wrapper {
-  padding: 0 3px;
+  padding: 3px 3px;
+
+  .title {
+    a {
+      color: black;
+    }
+  }
+
+  .price {
+    color: gray;
+  }
 }
 
 .main-event-wrapper {
