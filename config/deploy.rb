@@ -8,9 +8,6 @@ set :repo_url, 'git@github.com:resivalex/store.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :branch, 'master'
 
-# Default deploy_to directory is /var/www/store
-set :deploy_to, '/var/www/store'
-
 # Default value for :scm is :git
 set :scm, :git
 

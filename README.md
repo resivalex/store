@@ -5,6 +5,7 @@ adduser userrr
 usermod -a -G sudo userrr
 apt-get update
 apt-get install sudo
+apt-get install git
 
 ## Locales
 
@@ -26,6 +27,7 @@ logout
 
 ## PostgreSQL
 sudo apt-get install postgresql
+sudo apt-get install libpq-dev
 pg_createcluster 9.3 main --start
 
 ### Login as postgres
@@ -49,6 +51,8 @@ sudo apt-get install curl
 ### Relogin
 logout
 rvm install ruby-2.3.1
+gem install bundler
+sudo apt-get install nodejs
 
 ## Copy secrets in capistrano shared folder (e.g. by scp)
 mkdir -p ~/store/shared/config
@@ -92,3 +96,6 @@ server {
 
 - Restart Nginx
   service nginx restart
+
+# Deploy from your PC
+cap production deploy
