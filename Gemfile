@@ -14,7 +14,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'spree',              '~> 3.0.9'
 gem 'spree_auth_devise',  '~> 3.0.6'
 gem 'spree_gateway',      '~> 3.0.0'
-gem 'spree_yandex_kassa', git:    'git@github.com:SecretAgents/yandex_kassa.git',
+gem 'spree_yandex_kassa', git:    'https://github.com/SecretAgents/yandex_kassa.git',
                           branch: 'afd29aa2f7e03bcfad0cc5be2eff690fcd571437'
 
 gem 'acts_as_list' # List operations for models
