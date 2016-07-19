@@ -1,0 +1,22 @@
+.container
+  h1 События
+  - if spree_current_user.try(:admin?)
+    = form_tag push_events_path do
+      button type="submit" Добавить событие
+  - if spree_current_user.try(:admin?)
+    = form_tag push_events_path do
+      button type="submit" Добавить событие
+  - @events.each do |event|
+    .event-tile.col-md-4.col-sm-6
+      = link_to event_path(event) do
+        = image_tag event.mercury_image.try(:url, :tile)
+        h2.title = event.title
+      - if spree_current_user.try(:admin?)
+        = form_tag event_path(event), method: :delete, class: 'delete' do
+          button type="submit" Удалить
+        - if event != Event.first
+          = form_tag up_event_path(event), class: 'up' do
+            button type="submit" Вверх
+        - if event != Event.last
+          = form_tag down_event_path(event), class: 'down' do
+            button type="submit" Вниз

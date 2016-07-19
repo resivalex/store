@@ -5,15 +5,21 @@ Rails.application.routes.draw do
   end
   mount Mercury::Engine => '/'
 
-  resources :events do
-    collection do
-      post :push
-    end
-    member do
-      post :up
-      post :down
+  resources :events
+
+  namespace :manage do
+    resources :events do
+      collection do
+        post :push
+      end
+
+      member do
+        post :up
+        post :down
+      end
     end
   end
+
   get '/about' => 'about#index'
   put '/about' => 'about#update'
   get '/payment' => 'payment#index'
