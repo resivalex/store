@@ -9,4 +9,8 @@ class Event < ActiveRecord::Base
   default_scope { order(position: :desc) }
 
   validates :title, presence: true
+
+  def original_image_url
+    mercury_image.url(:original)
+  end
 end

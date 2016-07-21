@@ -11,7 +11,7 @@ $(document).ready ->
     
     scrollbar: '.swiper-scrollbar'
   
-    autoplay: 3000
+    autoplay: 6000
     autoplayDisableOnInteraction: false
 
     $('#left-menu').slicknav
