@@ -1,4 +1,4 @@
-$(document).ready ->
+$ ->
   mySwiper = new Swiper '.swiper-container',
     direction: 'vertical'
     loop: true,
@@ -14,9 +14,15 @@ $(document).ready ->
     autoplay: 6000
     autoplayDisableOnInteraction: false
 
-    $('#left-menu').slicknav
-        label : ''
-        prependTo: '#ccc'
+  $('#left-menu').slicknav
+    label : ''
+    prependTo: '#ccc'
+
+  $('.swiper-button-prev').click ->
+    mySwiper.swipePrev()
+
+  $('.swiper-button-next').click ->
+    mySwiper.swipeNext()
 
 $(document).on 'click', '.submenu-title', ->
   $('.submenu').addClass 'hidden'
