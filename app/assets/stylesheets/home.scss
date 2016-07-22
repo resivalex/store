@@ -1,53 +1,4 @@
-// .top-product-tiles {
-//   .tile {
-//     display: inline-block;
-//     width: 50%;
-
-//     img {
-//       width: 100%;
-//     }
-//   }
-// }
-
-// .main-product-wrapper {
-//   padding: 3px;
-
-//   @media (max-width: 991px) {
-//     padding: 3px 0 0;
-//   }
-// }
-
-// .main-board-wrapper {
-//   padding: 3px 3px;
-
-//   .title {
-//     a {
-//       color: black;
-//     }
-//   }
-
-//   .price {
-//     color: gray;
-//   }
-// }
-
-// .main-event-wrapper {
-//   padding: 2px 2px;
-
-//   @media (max-width: 767px) {
-//     padding-left: 0;
-//     padding-right: 0;
-//   }
-// }
-
-// .container-store {
-//   @media (max-width: 991px) {
-//     padding: 0;
-//     width: 100%;
-//   }
-// }
-
-// Georgiy's styles
+/* Home page */
 
 .photo {
   width: 400px;
@@ -57,7 +8,6 @@
 }
 
 .b-photo {
-  height: 300px;
   background: gray;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -87,7 +37,6 @@
 }
 
 .item-main {
-  height: 300px;
   overflow: hidden;
   background: #424242 center no-repeat;
   background-size: cover;
@@ -121,9 +70,4 @@
 .b-product{
   margin-top: 40px;
   margin-bottom: 40px;
-}
-
-/*для страницы о нас */
-.content-about div img {
-  width: 100%;
 }
