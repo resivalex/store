@@ -1,7 +1,7 @@
 $ ->
   mySwiper = new Swiper '.swiper-container',
-    direction: 'vertical'
-    loop: true,
+    direction: 'horizontal'
+    loop: true
     
     pagination: '.swiper-pagination'
     paginationClickable: true
@@ -17,12 +17,6 @@ $ ->
   $('#left-menu').slicknav
     label : ''
     prependTo: '#ccc'
-
-  $('.swiper-button-prev').click ->
-    mySwiper.swipePrev()
-
-  $('.swiper-button-next').click ->
-    mySwiper.swipeNext()
 
 $(document).on 'click', '.submenu-title', ->
   $('.submenu').addClass 'hidden'

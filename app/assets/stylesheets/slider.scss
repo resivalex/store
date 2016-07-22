@@ -24,12 +24,12 @@
 
 .swiper-button-prev, .swiper-button-next {
   &.nav {
+    background-color: rgba(0, 0, 0, 0);
     height: 100%;
     width: 50px;
     position: absolute;
     z-index: 100;
-    top: 0;
-    opacity: 0.4;
+    top: 22px;
     cursor:pointer;
     -webkit-transition:all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -37,19 +37,19 @@
     transition: all 0.3s ease;
 
     &:hover {
-      opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
     }
   }
 }
 
 .swiper-button-prev.prev {
-  background: url(/img/slider-arrows.png) no-repeat, rgba(0, 0, 0, 0.5);
-  background-position: 1px;
+  // background: url(/img/slider-arrows.png) no-repeat, rgba(0, 0, 0, 0.5);
+  // background-position: 1px;
   left: 0;
 }
 
 .swiper-button-next.next {
-  background: url(/img/slider-arrows.png) no-repeat, rgba(0, 0, 0, 0.5);
-  background-position: -40px;
+  // background: url(/img/slider-arrows.png) no-repeat, rgba(0, 0, 0, 0.5);
+  // background-position: -40px;
   right:0;
 }
