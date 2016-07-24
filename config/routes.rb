@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get '/editor(/*requested_uri)' => "my_mercury#edit", :as => :mercury_editor
-  namespace :mercury do
-    resources :images
-  end
-  mount Mercury::Engine => '/'
-
   resources :events do
     collection do
       post :push
@@ -14,6 +8,7 @@ Rails.application.routes.draw do
       post :down
     end
   end
+
   get '/about' => 'about#index'
   put '/about' => 'about#update'
   get '/payment' => 'payment#index'
