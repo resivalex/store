@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admin, path: 'cadmin' do
+    resources :events
+    resources :images
+    resources :pages
+
+    root to: "events#index"
+  end
+
   resources :events
 
   get '/about' => 'about#index'
