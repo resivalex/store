@@ -1,7 +1,7 @@
-$(document).ready ->
+$ ->
   mySwiper = new Swiper '.swiper-container',
-    direction: 'vertical'
-    loop: true,
+    direction: 'horizontal'
+    loop: true
     
     pagination: '.swiper-pagination'
     paginationClickable: true
@@ -11,12 +11,12 @@ $(document).ready ->
     
     scrollbar: '.swiper-scrollbar'
   
-    autoplay: 3000
+    autoplay: 6000
     autoplayDisableOnInteraction: false
 
-    $('#left-menu').slicknav
-        label : ''
-        prependTo: '#ccc'
+  $('#left-menu').slicknav
+    label : ''
+    prependTo: '#ccc'
 
 $(document).on 'click', '.submenu-title', ->
   $('.submenu').addClass 'hidden'

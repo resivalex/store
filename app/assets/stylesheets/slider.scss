@@ -1,3 +1,5 @@
+/* Slider styles */
+
 .swiper-container {
   width: 100%;
   height: 100%;
@@ -20,4 +22,32 @@
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  &.nav {
+    background-color: rgba(0, 0, 0, 0);
+    height: 100%;
+    width: 50px;
+    position: absolute;
+    z-index: 100;
+    top: 22px;
+    cursor:pointer;
+    -webkit-transition:all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.swiper-button-prev.prev {
+  left: 0;
+}
+
+.swiper-button-next.next {
+  right:0;
 }

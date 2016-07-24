@@ -1,6 +1,4 @@
 .container
-  h1#event_title data-mercury="simple" = @event.title
-  img#event_image.full-width src=(@event.mercury_image.try(:url, :original)) data-mercury="image"
-  #event_content data-mercury="full" == @event.content
-  - if spree_current_user.try(:admin?)
-    = link_to "Edit Page", "/editor" + request.path, id: "edit_link"
+  h1#event_title = @event.title
+  img#event_image.full-width src=(@event.image.try(:url, :original))
+  #event_content == @event.content

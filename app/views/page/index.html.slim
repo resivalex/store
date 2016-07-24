@@ -1,4 +1,2 @@
-.container style="padding-top:30px;"
-  #page_content data-mercury="full" == @content
-  - if spree_current_user.try(:admin?)
-    = link_to "Edit Page", "/editor" + request.path, id: "edit_link"
+.container.static-page-content style="padding-top:30px;"
+  #page_content == @content

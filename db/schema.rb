@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524202308) do
+ActiveRecord::Schema.define(version: 20160724201609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,13 +24,11 @@ ActiveRecord::Schema.define(version: 20160524202308) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.text     "content"
-    t.integer  "mercury_images_id"
-    t.integer  "mercury_image_id"
+    t.integer  "image_id"
     t.string   "image_src"
   end
 
-  add_index "events", ["mercury_image_id"], name: "index_events_on_mercury_image_id", using: :btree
-  add_index "events", ["mercury_images_id"], name: "index_events_on_mercury_images_id", using: :btree
+  add_index "events", ["image_id"], name: "index_events_on_image_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -47,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160524202308) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
-  create_table "mercury_images", force: :cascade do |t|
+  create_table "images", force: :cascade do |t|
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -1029,5 +1027,5 @@ ActiveRecord::Schema.define(version: 20160524202308) do
   add_index "spree_zones", ["default_tax"], name: "index_spree_zones_on_default_tax", using: :btree
   add_index "spree_zones", ["kind"], name: "index_spree_zones_on_kind", using: :btree
 
-  add_foreign_key "events", "mercury_images"
+  add_foreign_key "events", "images"
 end
