@@ -6,7 +6,7 @@
   - @events.each do |event|
     .event-tile.col-md-4.col-sm-6
       = link_to event_path(event) do
-        = image_tag event.mercury_image.try(:url, :tile)
+        = image_tag event.image.try(:url, :tile)
         h2.title = event.title
       - if spree_current_user.try(:admin?)
         = form_tag event_path(event), method: :delete, class: 'delete' do

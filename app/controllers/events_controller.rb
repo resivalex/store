@@ -22,7 +22,7 @@ class EventsController < Spree::BaseController
     end
     image_match = /system\/images\/(\d+)/.match(image_src)
     image_id = image_match ? image_match[1].to_i : nil
-    @event.mercury_image_id = image_id
+    @event.image_id = image_id
     @event.save!
     render nothing: true
   end

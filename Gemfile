@@ -23,6 +23,8 @@ gem 'pg' # PostgreSQL adapter
 gem 'russian', '~> 0.6.0'
 gem 'slim' # Markup
 gem 'thin' # HTTP server
+gem 'bourbon' # A simple and lightweight mixin library for Sass
+gem 'administrate', '~> 0.2.2' # Admin part
 
 group :development do
   gem 'web-console', '~> 2.0'
