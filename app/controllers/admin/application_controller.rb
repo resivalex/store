@@ -4,12 +4,16 @@
 #
 # If you want to add pagination or other controller-level concerns,
 # you're free to overwrite the RESTful controller actions.
+require 'digest'
+
 module Admin
   class ApplicationController < Administrate::ApplicationController
     before_filter :authenticate_admin
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      authenticate_or_request_with_http_basic do |username, password|
+        Digest::MD5.hexdigest("#{username}:#{password}") == 'e844a2fb7318c7fa692faa8ccc88c76e'
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
