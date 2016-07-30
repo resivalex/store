@@ -11,21 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724201609) do
+ActiveRecord::Schema.define(version: 20160730190646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.integer  "position"
-    t.string   "title"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.text     "content"
-    t.integer  "image_id"
-    t.string   "image_src"
+    t.integer "position"
+    t.string  "title"
+    t.text    "content"
+    t.integer "image_id"
+    t.string  "image_src"
   end
 
   add_index "events", ["image_id"], name: "index_events_on_image_id", using: :btree

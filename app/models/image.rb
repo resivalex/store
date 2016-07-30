@@ -7,6 +7,8 @@ class Image < ActiveRecord::Base
 
   delegate :url, :to => :image
 
+  default_scope { order(id: :desc) }
+
   def serializable_hash(options = nil)
     options ||= {}
     options[:methods] ||= []
