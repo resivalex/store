@@ -6,7 +6,7 @@ class PaperclipField < Administrate::Field::Base
   end
 
   def thumbnail
-    data.url(:medium)
+    data.url(:thumb)
   end
 
   def to_s
