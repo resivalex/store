@@ -1,7 +1,7 @@
 .container
   h1 События
   - @events.each do |event|
-    .event-tile.col-md-4.col-sm-6
-      = link_to event_path(event) do
-        = image_tag event.image.try(:url, :tile)
-        h2.title = event.title
+    .col-md-4.col-sm-6
+      .item-main.b-photo style="background-image: url(#{event.image.try(:url)})"
+        = link_to event_path(event) do
+          span.text = event.title

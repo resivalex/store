@@ -1,6 +1,9 @@
 /! slider
 .swiper-container
   .swiper-wrapper
+    .swiper-slide style="background:url(/img/main-slide-5.jpg)"
+      a.link-full-width
+        img src="/img/main-slide-5.jpg"
     .swiper-slide
       a.link-full-width href="/about"
         img src="/img/main-slide-4.png"
@@ -46,4 +49,3 @@
       = render '/spree/home/event', event: Event.find(5)
     .col-md-4
       = render '/spree/home/event', event: Event.find(6)
-
