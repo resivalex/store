@@ -2,7 +2,7 @@
 lock '3.5.0'
 
 set :application, 'store'
-set :repo_url, 'git@github.com:georgiy-voldaev/store.git/'
+set :repo_url, 'git@github.com:resivalex/store.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -24,7 +24,7 @@ set :rails_env, 'production'
 
 set :bundle_flags, '--deployment'
 
-set :linked_files, %w{config/database.yml config/secrets.yml}
+set :linked_files, %w(config/database.yml config/secrets.yml)
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/spree')
 
 # Default value for default_env is {}
