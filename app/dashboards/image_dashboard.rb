@@ -9,12 +9,10 @@ class ImageDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    image_file_name: Field::String,
-    image_content_type: Field::String,
-    image_file_size: Field::Number,
-    image_updated_at: Field::DateTime,
+    image_url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    image: PaperclipField
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -24,31 +22,23 @@ class ImageDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :image_file_name,
-    :image_content_type,
-    :image_file_size,
+    :image
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :image_file_name,
-    :image_content_type,
-    :image_file_size,
-    :image_updated_at,
+    :image,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :image_file_name,
-    :image_content_type,
-    :image_file_size,
-    :image_updated_at,
+    :image
   ].freeze
 
   # Overwrite this method to customize how images are displayed

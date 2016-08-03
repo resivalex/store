@@ -12,12 +12,7 @@ class EventDashboard < Administrate::BaseDashboard
     id: Field::Number,
     position: Field::Number,
     title: Field::String,
-    image_file_name: Field::String,
-    image_content_type: Field::String,
-    image_file_size: Field::Number,
-    image_updated_at: Field::DateTime,
-    content: Field::Text,
-    image_src: Field::String,
+    content: Field::Text
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -29,7 +24,7 @@ class EventDashboard < Administrate::BaseDashboard
     :image,
     :id,
     :position,
-    :title,
+    :title
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -39,12 +34,7 @@ class EventDashboard < Administrate::BaseDashboard
     :id,
     :position,
     :title,
-    :image_file_name,
-    :image_content_type,
-    :image_file_size,
-    :image_updated_at,
-    :content,
-    :image_src,
+    :content
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -54,12 +44,7 @@ class EventDashboard < Administrate::BaseDashboard
     :image,
     :position,
     :title,
-    :image_file_name,
-    :image_content_type,
-    :image_file_size,
-    :image_updated_at,
-    :content,
-    :image_src,
+    :content
   ].freeze
 
   # Overwrite this method to customize how events are displayed
