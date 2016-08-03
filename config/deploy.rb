@@ -24,7 +24,7 @@ set :rails_env, 'production'
 
 set :bundle_flags, '--deployment'
 
-set :linked_files, %w{config/database.yml config/secrets.yml}
+set :linked_files, %w(config/database.yml config/secrets.yml)
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/spree')
 
 # Default value for default_env is {}
