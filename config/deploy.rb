@@ -2,7 +2,7 @@
 lock '3.5.0'
 
 set :application, 'store'
-set :repo_url, 'git@github.com:resivalex/store.git'
+set :repo_url, 'git@github.com:georgiy-voldaev/store.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
