@@ -174,17 +174,15 @@ h1 {
 border: none;
 }
 
-.table-striped > tbody > tr:nth-of-type(2n+1),
-.table-striped > tbody > tr:nth-of-type(2n){
-  background: none;
-  border: none;
+.table-striped > tbody > tr {
+  &:nth-of-type(2n+1), &:nth-of-type(2n) {
+    background: none;
+    border: none;
+  }
 }
 
-#product_16 {
-    width: 100%;
-}
-#product_17 {
-    width: 100%;
+.full-size {
+  width: 100%;
 }
 
 #add-to-cart-button {

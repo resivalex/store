@@ -1,6 +1,6 @@
 - taxon = nil unless defined?(taxon)
 - url = spree.product_path(product, taxon_id: taxon.try(:id))
-div.col-md-4.col-sm-6.product-list-item id="product_#{product.id}" itemscope=() itemtype="https://schema.org/Product"
+div.col-md-4.col-sm-6.product-list-item id="product_#{product.id}" class="#{'full-size' if [16, 17].include? product.id}" itemscope=() itemtype="https://schema.org/Product"
   div
     - cache(@taxon.present? ? [I18n.locale, current_currency, taxon, product] : [I18n.locale, current_currency, product]) do
       .text-center.product-body
