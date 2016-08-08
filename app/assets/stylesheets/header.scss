@@ -150,3 +150,10 @@ $menu_threshold: 800px;
     }
   }
 }
+
+@media (min-width:700px) {
+  .none-desktop {
+    display: none;
+  }
+
+}

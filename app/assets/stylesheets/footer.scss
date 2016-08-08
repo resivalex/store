@@ -1,4 +1,7 @@
 footer {
+  background: black;
+  height: 60px;
+  
   .links {
     background: black;
     color: white;
@@ -11,4 +14,12 @@ footer {
       height: 50
     }
   }
+}
+
+.b-logo-footer{
+    width: 88px;
+    margin: 7px auto 0px;
+    right: 0px;
+    left: 0px;
+    position: absolute;
 }
