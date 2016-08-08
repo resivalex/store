@@ -1,7 +1,7 @@
 footer {
   background: black;
   height: 60px;
-  
+
   .links {
     background: black;
     color: white;
@@ -22,4 +22,10 @@ footer {
     right: 0px;
     left: 0px;
     position: absolute;
+}
+
+@media (max-width:800px) {
+  .anti-none {
+    display: none;
+  }
 }
