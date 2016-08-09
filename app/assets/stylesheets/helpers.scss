@@ -28,3 +28,41 @@ html, body {
 .true-height {
   height: auto;
 }
+
+.btn-shop {
+  width: 42%;
+}
+.padding-top {
+  padding-top: 10px;
+}
+.right-width {
+  padding: 0px 10px;
+  width: 47%;
+}
+
+@media (max-width:700px) {
+    .btn-shop{
+      width: 48%;
+      margin-left: 3px;
+      margin-right: 3px;
+    }
+    .right-width {
+      padding: 0px 10px;
+      width: 49%;
+    }
+}
+
+@media (max-width: 450px) {
+    .btn-shop {
+      margin-left: 2px;
+      margin-right: 2px;
+    }
+    .mini-font {
+      font-size: 11px;
+    }
+    .cart-total{
+      .summary {
+        font-size: 17px;
+      }
+    }
+}

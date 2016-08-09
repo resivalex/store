@@ -10,20 +10,20 @@
     - else
       = form_for @order, url: update_cart_path, html: { id: 'update-cart' } do |order_form|
         = render partial: 'form', locals: { order_form: order_form }
-        .col-lg-8.col-md-7.col-sm-6
-          button#empty-cart-button.btn.black-button.margin-top-5 onclick="$('#empty-cart form').submit();return false;"
+        .col-lg-8.col-md-7.col-sm-6.padding-top
+          button#empty-cart-button.btn.black-button.margin-top-5.btn-shop.mini-font  onclick="$('#empty-cart form').submit();return false;"
             = Spree.t(:empty_cart)
-          button#update-button.btn.black-button.full-width.margin-top-5
+          button#update-button.btn.black-button.full-width.margin-top-5.btn-shop
             = Spree.t(:update)
         .col-lg-4.col-md-5.col-sm-6.warning.cart-total
-          .summary
+          .summary.mini-cost
             = Spree.t(:total)
-            |  
+            |
             span
               = order_form.object.display_total
           .row
-            .col-sm-12
-              = button_tag class: 'btn black-button full-width margin-top-5', id: 'checkout-link', name: 'checkout' do
+            .col-sm-6.right-width
+              = button_tag class: 'btn black-button full-width margin-top-5 mini-font', id: 'checkout-link', name: 'checkout' do
                 = Spree.t(:checkout)
       #empty-cart
         = form_tag empty_cart_path, method: :put do
