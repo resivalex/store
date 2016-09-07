@@ -6,8 +6,16 @@
         div
           #product-images
             #main-image.panel.panel-default
-              .panel-body.text-center
-                = render :partial => 'image'
+                .panel-body.text-center
+                  - if (@product.images + @product.variant_images).uniq.size > 1
+                         - @product.images.each do |i|
+                             = link_to(image_tag(i.attachment.url(:product), class: "large"), i.attachment.url(:large), class: "big-img-link none", rel: "group")
+                         - if @product.has_variants?
+                           - @product.variant_images.each do |i|
+                             - next if @product.images.include?(i)
+                             li.vtmb class="tmb-#{i.viewable.id}"
+                               = link_to("", i.attachment.url(:large), title: "smth")
+                                = render :partial => 'image'
             #thumbnails
               = render :partial => 'thumbnails'
           div
