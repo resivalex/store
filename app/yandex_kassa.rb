@@ -148,6 +148,10 @@ module OffsitePayments #:nodoc:
           'success'
         end
 
+        def message=(s)
+          'fake'
+        end
+
         # Acknowledge the transaction to YandexKassa. This method has to be called after a new
         # apc arrives. YandexKassa will verify that all the information we received are correct and will return a
         # ok or a fail.
