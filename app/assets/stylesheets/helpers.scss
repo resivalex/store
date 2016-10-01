@@ -66,3 +66,22 @@ html, body {
       }
     }
 }
+.none {
+  display: none;
+}
+.panel-body a.big-img-link:nth-child(1) {
+  display: block;
+}
+.fancybox-close {
+  position: absolute;
+  top: 5px;
+  right: -8px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  z-index: 8040;
+  font-size: 25px;
+}
+.fancybox-close:hover {
+  text-decoration:none;
+}

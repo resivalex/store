@@ -1,6 +1,9 @@
 //= require jquery
+//= require jquery.min
 //= require jquery_ujs
 //= require swiper.jquery.min
 //= require jquery.slicknav.min
 //= require actions
+//= require fancybox.js
 //= require metrika.js
+//= require run_fancy.js
