@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905210628) do
+ActiveRecord::Schema.define(version: 20161001165059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -340,12 +340,11 @@ ActiveRecord::Schema.define(version: 20160905210628) do
     t.text     "description"
     t.boolean  "active",       default: true
     t.datetime "deleted_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "display_on"
     t.boolean  "auto_capture"
     t.text     "preferences"
-    t.string   "environment",  default: "production"
   end
 
   add_index "spree_payment_methods", ["id", "type"], name: "index_spree_payment_methods_on_id_and_type", using: :btree
