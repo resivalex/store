@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :images
     resources :pages
 
-    root to: "events#index"
+    root to: 'events#index'
   end
 
   resources :events

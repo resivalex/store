@@ -88,3 +88,6 @@ pickle-email-*.html
 
 # Spree images
 /public/spree
+
+# Yandex API spec
+spec/requests/yandex_api_spec.rb
