@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'spree',              '~> 3.0.9'
 gem 'spree_auth_devise',  '~> 3.0.6'
 gem 'spree_gateway',      '~> 3.0.0'
+gem 'offsite_payments', github: 'SecretAgents/offsite_payments', branch: 'yandex_kassa'
 
 gem 'acts_as_list' # List operations for models
 gem 'pg' # PostgreSQL adapter
