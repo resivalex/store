@@ -24,7 +24,7 @@ class Spree::YandexkassaController < Spree::BaseController
       redirect_to :back
     else
       # Find payment for Yandexkassa
-      payment = @order.payments.select { |p| p.payment_method.kind_of? Spree::BillingIntegration::YandexkassaIntegration and p.can_started_processing? }.first
+      payment = @order.payments.select { |p| p.payment_method.kind_of? Spree::Gateway::YandexKassa and p.can_started_processing? }.first
       if payment.nil?
         payment = @order.payments.create(amount: 0, payment_method: @gateway)
       end
@@ -41,7 +41,7 @@ class Spree::YandexkassaController < Spree::BaseController
 
   def check_order
     logger.debug "[yandexkassa] check_order started"
-    @gateway = Spree::BillingIntegration::YandexkassaIntegration.current
+    @gateway = Spree::Gateway::YandexKassa.current
     if @notification.acknowledge @gateway.options[:password]
       logger.debug "[yandexkassa] check notification: true"
       order = Spree::Order.find_by number: @notification.item_id
@@ -69,7 +69,7 @@ class Spree::YandexkassaController < Spree::BaseController
 
   def payment_aviso
     logger.debug "[yandexkassa] payment_aviso started"
-    @gateway = Spree::BillingIntegration::YandexkassaIntegration.current
+    @gateway = Spree::Gateway::YandexKassa.current
     if @notification.acknowledge @gateway.options[:password]
       logger.debug "[yandexkassa] check notification: true"
       order = Spree::Order.find_by number: @notification.item_id
@@ -78,7 +78,7 @@ class Spree::YandexkassaController < Spree::BaseController
         # robokassa_transaction = Spree::RobokassaTransaction.create
 
         # Find payment for Yandexkassa with status processing and equal amount
-        payment = order.payments.select { |p| p.payment_method.kind_of? Spree::BillingIntegration::YandexkassaIntegration and p.processing? and p.amount.to_f == @notification.gross }.first
+        payment = order.payments.select { |p| p.payment_method.kind_of? Spree::Gateway::YandexKassa and p.processing? and p.amount.to_f == @notification.gross }.first
         logger.debug "[yandexkassa] payment: #{payment}"
         if payment.nil?
           logger.debug "[yandexkassa] creating payment"
