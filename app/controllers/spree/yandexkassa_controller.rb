@@ -46,7 +46,7 @@ class Spree::YandexkassaController < Spree::BaseController
       logger.debug "[yandexkassa] check notification: true"
       order = Spree::Order.find_by number: @notification.item_id
       logger.debug "[yandexkassa] order #{order.inspect}"
-      if not order
+      if !order
         @notification.message = Spree.t :order_not_found
       elsif order.total.to_f < @notification.gross
         @notification.message = Spree.t :payment_more_than_order_price

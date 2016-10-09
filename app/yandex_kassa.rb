@@ -131,7 +131,8 @@ module OffsitePayments #:nodoc:
         end
 
         def item_id
-          shop_article_id
+          # shop_article_id
+          order_number
         end
 
         # def transaction_id
