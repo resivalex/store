@@ -60,11 +60,19 @@ module OffsitePayments #:nodoc:
         end
 
         def signature_string
-          [action, order_sum_amount, order_sum_currency_paycash, order_sum_bank_paycash, shop_id, invoice_id, customer_number]
+          [
+            action,
+            order_sum_amount,
+            order_sum_currency_paycash,
+            order_sum_bank_paycash,
+            shop_id,
+            invoice_id,
+            customer_number
+          ]
         end
 
         def generate_signature(shop_password)
-          Digest::MD5.hexdigest((signature_string << shop_password).join(';').tr(' ', ''))
+          Digest::MD5.hexdigest((signature_string << shop_password).join(';'))
         end
 
         def request_datetime
