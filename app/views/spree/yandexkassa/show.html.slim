@@ -1,7 +1,7 @@
 .container
   .payment_method_select
     / mapping needed fields fields for credit
-    - map_credit_fields @order if yandex_kassa_credit?
+    / - map_credit_fields @order if yandex_kassa_credit?
 
     div style="height:50px"
     = form_tag OffsitePayments::Integrations::Yandexkassa.service_url, method: :post, id: 'payment-form'
@@ -28,17 +28,18 @@
       = hidden_field_tag 'customerNumber', "#{@order.user_id} #{yandex_kassa_identity_method(@order)}"
       = hidden_field_tag 'sum', @order.total.to_f
       = hidden_field_tag 'scid', @gateway.options[:scid]
+      = hidden_field_tag 'shopId', @gateway.options[:shopId]
 
-      - if yandex_kassa_credit?
-        - service.seller_id @gateway.options[:shopId]
-        - @order.line_items.each_with_index do |line_item, i|
-          - i += 1
-          - product = line_item.product
-          - hidden_field_tag "category_code_#{i}", product.taxons.first.category_code
-          - hidden_field_tag "goods_name_#{i}", truncate(product.name, length: 255)
-          - hidden_field_tag "goods_description_#{i}", truncate((strip_tags product.description), length: 255)
-          - hidden_field_tag "goods_quantity_#{i}", line_item.quantity
-          - hidden_field_tag "goods_cost_#{i}", product.price
+      / - if yandex_kassa_credit?
+      /   - service.seller_id @gateway.options[:shopId]
+      /   - @order.line_items.each_with_index do |line_item, i|
+      /     - i += 1
+      /     - product = line_item.product
+      /     - hidden_field_tag "category_code_#{i}", product.taxons.first.category_code
+      /     - hidden_field_tag "goods_name_#{i}", truncate(product.name, length: 255)
+      /     - hidden_field_tag "goods_description_#{i}", truncate((strip_tags product.description), length: 255)
+      /     - hidden_field_tag "goods_quantity_#{i}", line_item.quantity
+      /     - hidden_field_tag "goods_cost_#{i}", product.price
 
       - unless @payment_methods.blank?
         - hidden_field_tag 'paymentType', @payment_methods.first.to_s.split('_').last
