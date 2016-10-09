@@ -16,14 +16,14 @@ module Spree::YandexKassaHelper
   def map_credit_fields(order)
     1.upto(order.line_items.count) do |i|
       CREDIT_FIELDS.each do |field|
-        OffsitePayments::Integrations::Yandexkassa::Helper.mapping "#{field}_#{i}".to_sym, "#{field}_#{i}"
+        unless OffsitePayments::Integrations::Yandexkassa::Helper.mappings["#{field}_#{i}".to_sym].present?
+          OffsitePayments::Integrations::Yandexkassa::Helper.mapping "#{field}_#{i}".to_sym, "#{field}_#{i}"
+        end
       end
     end
   end
 
   def yandex_kassa_credit?
-    unless OffsitePayments::Integrations::Yandexkassa::Helper.mappings["#{field}_#{i}".to_sym].present?
-      Spree::Gateway::YandexKassa.all.any? { |y| y.preferences[:payment_method_KV] }
-    end
+    Spree::Gateway::YandexKassa.all.any? { |y| y.preferences[:payment_method_KV] }
   end
 end
