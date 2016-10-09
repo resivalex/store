@@ -52,9 +52,8 @@ module Spree
     end
 
     def self.current
-      self.where(:type => self.to_s, :environment => Rails.env, :active => true).first
+      where(active: true).first
     end
-
 
     # @return [Array] of symbols available payment methods
     # depending on order's total price
@@ -78,7 +77,7 @@ module Spree
       lower = options["lower_limit_#{name}".to_sym]
       upper = options["upper_limit_#{name}".to_sym]
 
-      amount > lower and amount < upper
+      amount > lower && amount < upper
     end
     # preference :login, :string
     # preference :password, :string

@@ -134,9 +134,9 @@ module OffsitePayments #:nodoc:
           shop_article_id
         end
 
-        def transaction_id
-          shop_invoice_id
-        end
+        # def transaction_id
+        #   shop_invoice_id
+        # end
 
         # When was this payment received by the client.
         def received_at

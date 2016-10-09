@@ -2,13 +2,6 @@
   .payment_method_select
     / mapping needed fields fields for credit
     - map_credit_fields @order if yandex_kassa_credit?
-    / - payment_service_for @order.number, "#{@order.user_id} #{yandex_kassa_identity_method(@order)}",
-    /                       :currency => 'RUR',
-    /                       :amount => @order.total.to_f,
-    /                       :service => :yandexkassa,
-    /                       :html => {:id => 'payment-form'} do |service|
-  
-  
 
     div style="height:50px"
     = form_tag OffsitePayments::Integrations::Yandexkassa.service_url, method: :post, id: 'payment-form'

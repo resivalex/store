@@ -3,7 +3,7 @@ class Spree::YandexkassaController < Spree::BaseController
   before_filter :create_notification, :only => [:check_order, :payment_aviso]
 
   include OffsitePayments::Integrations
-  include Spree::YandexkassaHelper
+  include Spree::YandexKassaHelper
 
   # To avoid error undefined local variable or method `cache_key_for_taxons'
   helper 'spree/store'
