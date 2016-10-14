@@ -12,36 +12,32 @@ class Spree::YandexkassaController < Spree::BaseController
 
   def show
     @order = Spree::Order.find_by(number: params[:order_number])
-    @order.state = params[:state] if params[:state]
-    @gateway = @order.available_payment_methods.detect { |x| x.id == params[:gateway_id].to_i }
-    # Available(checked) payments methods for Yandexkassa
-    # @payment_methods = @gateway.checked_payment_methods
+    @gateway = @order.available_payment_methods.find { |x| x.id == params[:gateway_id].to_i }
 
-    @payment_methods = @gateway.available_payment_methods @order
+    @yandex_payment_types = @gateway.available_payment_types @order
 
-    if @order.blank? || @gateway.blank?
-      flash[:error] = I18n.t("invalid_arguments")
+    unless @order && @gateway
+      flash[:error] = I18n.t('invalid_arguments')
       redirect_to :back
-    else
-      # Find payment for Yandexkassa
-      yandex_payments = @order.payment.select { |p| p.payment_method.kind_of? Spree::Gateway::YandexKassa }
-      suitable_payments = @order.payments.select(&:can_started_processing?)
-      paiment = suitable_payments.first
-      if payment.nil?
-        payment = @order.payments.create(amount: 0, payment_method: @gateway)
-      end
-      # Set amount and start processing
-      payment.amount = @order.total
-      payment.save
-      payment.started_processing!
-
-      # For correct path in payment form we need set mode for OffsitePayments
-      OffsitePayments.mode = @gateway.options[:test_mode] ? :test : :production
-      render :action => :show
+      return
     end
+
+    payment = @order.payments
+                    .where(payment_method: @gateway)
+                    .find(&:can_started_processing?)
+    unless payment
+      payment = @order.payments.create(amount: @order.total, payment_method: @gateway)
+    end
+    payment.started_processing!
+
+    # For correct path in payment form we need set mode for OffsitePayments
+    OffsitePayments.mode = @gateway.options[:test_mode] ? :test : :production
   end
 
   def check_order
+    puts '=' * 40
+    puts params.inspect
+    puts '=' * 40
     @gateway = Spree::Gateway::YandexKassa.current
     if @notification.acknowledge @gateway.options[:password]
       order = Spree::Order.find_by number: @notification.item_id
@@ -62,24 +58,21 @@ class Spree::YandexkassaController < Spree::BaseController
   end
 
   def payment_aviso
+    puts '=' * 40
+    puts params.inspect
+    puts '=' * 40
     @gateway = Spree::Gateway::YandexKassa.current
     if @notification.acknowledge @gateway.options[:password]
 
       order = Spree::Order.find_by number: @notification.item_id
       if order
-        # TODO надо ли делать транзакцию?
-        # robokassa_transaction = Spree::RobokassaTransaction.create
-
         # Find payment for Yandexkassa with status processing and equal amount
-        similar_payments = order.payments.select do |p|
-          p.payment_method.kind_of?(Spree::Gateway::YandexKassa) && p.processing? && p.amount.to_f == @notification.gross
-        end
-        payment = similar_payments.first
+        processing_payments = order.payments.where(payment_method: @gateway).select(&:processing?)
+        payment = processing_payments.find { |p| p.amount.to_f == @notification.gross }
 
-        if payment.nil?
+        unless payment
           payment = order.payments.create(amount: @notification.gross,
-                                          payment_method: @gateway) #,
-          # source: robokassa_transaction)
+                                          payment_method: @gateway) # source: robokassa_transaction)
           payment.started_processing!
         end
 

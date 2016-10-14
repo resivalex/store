@@ -1,8 +1,5 @@
 .container
   .payment_method_select
-    / mapping needed fields fields for credit
-    / - map_credit_fields @order if yandex_kassa_credit?
-
     div style="height:50px"
     = form_tag OffsitePayments::Integrations::Yandexkassa.service_url, method: :post, id: 'payment-form'
       - unless @order.blank?
@@ -13,13 +10,13 @@
           ' Сумма заказа:
           = @order.total.to_f
         br
-      - if @payment_methods.present?
+      - if @yandex_payment_types.present?
         .payment_methods_block
           .payment_methods_label Выберите способ оплаты:
           .payment_methods_list
-            - @payment_methods.each do |payment_method|
+            - @yandex_payment_types.each do |payment_method|
               - payment_method_name = payment_method.to_s.split('_').last
-              .payment_method_item class="#{'active ' if payment_method == @payment_methods.first}#{payment_method_name}" = link_to Spree.t(payment_method), '#', data: {payment_method: payment_method_name}
+              .payment_method_item class="#{'active ' if payment_method == @yandex_payment_types.first}#{payment_method_name}" = link_to Spree.t(payment_method), '#', data: {payment_method: payment_method_name}
       - else
         | Извините, оплата невозможна, потому что сумма заказа превышает лимиты по оплаты с помощью яндекс кассы. Пожалуйста вернитесь назад и выберите другой способ оплаты.
 
@@ -30,18 +27,7 @@
       = hidden_field_tag 'scid', @gateway.options[:scid]
       = hidden_field_tag 'shopId', @gateway.options[:shopId]
 
-      / - if yandex_kassa_credit?
-      /   - service.seller_id @gateway.options[:shopId]
-      /   - @order.line_items.each_with_index do |line_item, i|
-      /     - i += 1
-      /     - product = line_item.product
-      /     - hidden_field_tag "category_code_#{i}", product.taxons.first.category_code
-      /     - hidden_field_tag "goods_name_#{i}", truncate(product.name, length: 255)
-      /     - hidden_field_tag "goods_description_#{i}", truncate((strip_tags product.description), length: 255)
-      /     - hidden_field_tag "goods_quantity_#{i}", line_item.quantity
-      /     - hidden_field_tag "goods_cost_#{i}", product.price
-
-      - unless @payment_methods.blank?
-        - hidden_field_tag 'paymentType', @payment_methods.first.to_s.split('_').last
+      - unless @yandex_payment_types.blank?
+        - hidden_field_tag 'paymentType', @yandex_payment_types.first.to_s.split('_').last
       - hidden_field_tag 'shopFailURL', OffsitePayments::Integrations::Yandexkassa.success_payment_url
       - hidden_field_tag 'shopSuccessURL', OffsitePayments::Integrations::Yandexkassa.failed_payment_url

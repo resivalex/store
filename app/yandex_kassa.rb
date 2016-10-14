@@ -3,7 +3,6 @@ require 'offsite_payments'
 module OffsitePayments #:nodoc:
   module Integrations #:nodoc:
     module Yandexkassa
-
       mattr_accessor :test_url
       self.test_url = 'https://demomoney.yandex.ru/eshop.xml'
 
@@ -15,9 +14,9 @@ module OffsitePayments #:nodoc:
 
         case mode
         when :production
-          self.production_url
+          production_url
         when :test
-          self.test_url
+          test_url
         else
           raise StandardError, 'Integration mode set to an invalid value: #{mode}'
         end
@@ -43,8 +42,8 @@ module OffsitePayments #:nodoc:
         mapping :account,     'customerNumber'
         mapping :amount,      'sum'
         mapping :order,       'orderNumber'
-        mapping :customer,    :email      => 'cps_email',
-                              :phone      => 'cps_phone'
+        mapping :customer,    email: 'cps_email',
+                              phone: 'cps_phone'
 
         mapping :success_url, 'shopSuccessURL'
         mapping :fail_url,    'shopFailURL'
@@ -55,8 +54,10 @@ module OffsitePayments #:nodoc:
 
       class Notification < OffsitePayments::Notification
         def currency
-          id, _ = Money::Currency.table.find {|key, currency| currency[:iso_numeric] == shop_sum_currency_paycash }
-          id
+          record = Money::Currency.table.find do |_code, currency|
+            currency[:iso_numeric] == shop_sum_currency_paycash
+          end
+          record.first
         end
 
         def signature_string
@@ -78,51 +79,67 @@ module OffsitePayments #:nodoc:
         def request_datetime
           params['requestDatetime']
         end
+
         def action
           params['action']
         end
+
         def md5
           params['md5']
         end
+
         def shop_id
           params['shopId']
         end
+
         def shop_article_id
           params['shopArticleId']
         end
+
         def invoice_id
           params['invoiceId']
         end
+
         def order_number
           params['orderNumber']
         end
+
         def customer_number
           params['customerNumber']
         end
+
         def order_created_datetime
           params['orderCreatedDatetime']
         end
+
         def order_sum_amount
           params['orderSumAmount']
         end
+
         def order_sum_currency_paycash
-          params['orderSumCurrencyPaycash'] 
+          params['orderSumCurrencyPaycash']
         end
+
         def order_sum_bank_paycash
           params['orderSumBankPaycash']
         end
+
         def shop_sum_amount
           params['shopSumAmount']
         end
+
         def shop_sum_currency_paycash
           params['shopSumCurrencyPaycash']
         end
+
         def shop_sum_bank_paycash
           params['shopSumBankPaycash']
         end
+
         def payment_payer_code
           params['paymentPayerCode']
         end
+
         def payment_type
           params['paymentType']
         end
@@ -165,24 +182,9 @@ module OffsitePayments #:nodoc:
           'success'
         end
 
-        # Acknowledge the transaction to YandexKassa. This method has to be called after a new
-        # apc arrives. YandexKassa will verify that all the information we received are correct and will return a
-        # ok or a fail.
-        #
-        # Example:
-        #
-        #   def ipn
-        #     notify = YandexKassaNotification.new(request.raw_post)
-        #
-        #     if notify.acknowledge
-        #       ... process order ... if notify.complete?
-        #     else
-        #       ... log possible hacking attempt ...
-        #     end
         def acknowledge(authcode = nil)
           (security_key == generate_signature(authcode))
         end
-
       end
     end
   end

@@ -58,7 +58,7 @@ module Spree
     # @return [Array] of symbols available payment methods
     # depending on order's total price
     # For ex. [:payment_method_AC, :payment_method_MC, :payment_method_PB]
-    def available_payment_methods(order)
+    def available_payment_types(order)
       amount = order.total
       checked_payment_methods.select { |payment_method| payment_method_in_limit? payment_method, amount }
     end

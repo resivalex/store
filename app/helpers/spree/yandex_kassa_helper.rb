@@ -22,8 +22,4 @@ module Spree::YandexKassaHelper
       end
     end
   end
-
-  def yandex_kassa_credit?
-    Spree::Gateway::YandexKassa.all.any? { |y| y.preferences[:payment_method_KV] }
-  end
 end
