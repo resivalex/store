@@ -35,9 +35,9 @@ class Spree::YandexkassaController < Spree::BaseController
   end
 
   def check_order
-    puts '=' * 40
-    puts params.inspect
-    puts '=' * 40
+    logger.debug '=' * 80
+    logger.debug params.inspect
+    logger.debug '=' * 80
     @gateway = Spree::Gateway::YandexKassa.current
     if @notification.acknowledge @gateway.options[:password]
       order = Spree::Order.find_by number: @notification.item_id
@@ -58,9 +58,9 @@ class Spree::YandexkassaController < Spree::BaseController
   end
 
   def payment_aviso
-    puts '=' * 40
-    puts params.inspect
-    puts '=' * 40
+    logger.debug '=' * 80
+    logger.debug params.inspect
+    logger.debug '=' * 80
     @gateway = Spree::Gateway::YandexKassa.current
     if @notification.acknowledge @gateway.options[:password]
 

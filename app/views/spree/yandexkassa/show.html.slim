@@ -29,5 +29,5 @@
 
       - unless @yandex_payment_types.blank?
         - hidden_field_tag 'paymentType', @yandex_payment_types.first.to_s.split('_').last
-      - hidden_field_tag 'shopFailURL', OffsitePayments::Integrations::Yandexkassa.success_payment_url
-      - hidden_field_tag 'shopSuccessURL', OffsitePayments::Integrations::Yandexkassa.failed_payment_url
+      / = hidden_field_tag 'shopFailURL', OffsitePayments::Integrations::Yandexkassa.success_payment_url
+      / = hidden_field_tag 'shopSuccessURL', OffsitePayments::Integrations::Yandexkassa.failed_payment_url
