@@ -175,7 +175,7 @@ module OffsitePayments #:nodoc:
 
         # the money amount we received in X.2 decimal.
         def gross
-          shop_sum_amount.to_f
+          order_sum_amount.to_f
         end
 
         def status
