@@ -83,6 +83,7 @@ class Spree::YandexkassaController < Spree::BaseController
           order.update!
           order.pay!
           order.update!
+          order.finalize!
         end
         @notification.set_response 0
       else
