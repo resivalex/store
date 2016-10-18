@@ -81,6 +81,7 @@ class Spree::YandexkassaController < Spree::BaseController
         logger.debug order.attributes
         if order.payment_total?
           # Change order state to paid.
+          logger.debug '!!!!!!!@!!!'
           order.update!
           order.pay!
           order.update!
