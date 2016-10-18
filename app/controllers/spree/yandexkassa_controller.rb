@@ -78,6 +78,7 @@ class Spree::YandexkassaController < Spree::BaseController
 
         # Complete payment
         payment.complete!
+        logger.debug order.attributes
         if order.payment_total?
           # Change order state to paid.
           order.update!
@@ -85,6 +86,7 @@ class Spree::YandexkassaController < Spree::BaseController
           order.update!
           order.finalize!
         end
+        logger.debug order.attributes
         @notification.set_response 0
       else
         @notification.set_response 1
